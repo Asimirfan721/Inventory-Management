@@ -6,11 +6,11 @@ use App\Models\Currency;
 
 class CurrencyController extends Controller
 {
-    public function index()
-    {
-        $currencies = Currency::all();
-        return view('currency.index', compact('currencies'));
-    }
+   public function index()
+{
+    $currencies = Currency::all();
+    return view('currency.index', compact('currencies'));
+}
 
     public function store(Request $request)
     {
