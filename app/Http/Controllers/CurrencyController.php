@@ -26,4 +26,20 @@ class CurrencyController extends Controller
 
         return redirect()->route('currency.index')->with('success', 'Currency added successfully!');
     }
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'code' => 'required|string|max:10',
+        'currency' => 'required|string|max:255',
+    ]);
+
+    $currency = Currency::findOrFail($id);
+    $currency->update([
+        'code' => $request->code,
+        'currency' => $request->currency,
+    ]);
+
+    return redirect()->route('currency.index')->with('success', 'Currency updated successfully!');
+}
+
 }

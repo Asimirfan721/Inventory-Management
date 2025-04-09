@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 Route::get('/currencies', [CurrencyController::class, 'index'])->name('currency.index');
 Route::post('/currencies', [CurrencyController::class, 'store'])->name('currency.store');
+Route::post('/currencies/{id}/update', [CurrencyController::class, 'update'])->name('currency.update');
