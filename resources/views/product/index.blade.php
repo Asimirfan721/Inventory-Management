@@ -11,44 +11,53 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>No</th>
-        <th>Code</th>
-        <th>Currency</th>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>SKU</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      @foreach($currencies as $index => $currency)
+      @foreach($products as $index => $product)
       <tr>
         <td>{{ $index + 1 }}</td>
-        <td>{{ $currency->code }}</td>
-        <td>{{ $currency->currency }}</td>
+        <td>{{ $product->code }}</td>
+        <td>{{ $product->product }}</td>
         <td>
           <!-- Edit Button triggers modal -->
-          <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $currency->id }}">Edit</button>
+          <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $product->id }}">Edit</button>
         </td>
       </tr>
 
       <!-- Edit Modal -->
-      <div class="modal fade" id="editModal{{ $currency->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $currency->id }}" aria-hidden="true">
+      <div class="modal fade" id="editModal{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $product->id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <form action="{{ route('currency.update', $currency->id) }}" method="POST">
+        <form action="{{ route('product.update', $product->id) }}" method="POST">
           @csrf
           <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title">Edit Currency</h5>
+            <h5 class="modal-title">Edit Product</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span>&times;</span>
             </button>
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label>Currency</label>
-                <input type="text" name="currency" class="form-control" value="{{ $currency->currency }}" required>
+                <label>Product</label>
+                <input type="text" name="product" class="form-control" value="{{ $product->product}}" required>
               </div>
               <div class="form-group">
-                <label>Code</label>
-                <input type="text" name="code" class="form-control" value="{{ $currency->code }}" required>
+                <label>Category</label>
+                <input type="text" name="category" class="form-control" value="{{ $product->code }}" required>
+              </div>
+              <div class="form-group">
+                <label>Brand</label>
+                <input type="text" name="brand" class="form-control" value="{{ $product->code }}" required>
+              </div>
+              <div class="form-group">
+                <label>SKU</label>
+                <input type="text" name="SKU" class="form-control" value="{{ $product->code }}" required>
               </div>
             </div>
             <div class="modal-footer">
@@ -67,23 +76,31 @@
 <!-- Add Currency Modal -->
 <div class="modal fade" id="addCurrencyModal" tabindex="-1" role="dialog" aria-labelledby="addCurrencyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ route('currency.store') }}" method="POST">
+    <form action="{{ route('product.store') }}" method="POST">
         @csrf
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addCurrencyModalLabel">Add Currency</h5>
+            <h5 class="modal-title" id="addCurrencyModalLabel">Add Product</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span>&times;</span>
             </button>
           </div>
           <div class="modal-body">
                 <div class="form-group">
-                    <label>Currency</label>
-                    <input type="text" name="currency" class="form-control" required>
+                    <label>Product</label>
+                    <input type="text" name="product" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label>Code</label>
-                    <input type="text" name="code" class="form-control" required>
+                    <label>Category</label>
+                    <input type="text" name="category" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Brand</label>
+                    <input type="text" name="brand" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>SKU</label>
+                    <input type="text" name="SKU" class="form-control" required>
                 </div>
           </div>
           <div class="modal-footer">
