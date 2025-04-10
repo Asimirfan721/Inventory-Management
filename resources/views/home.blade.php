@@ -54,7 +54,7 @@
             <li>Access</li>
             <a href="{{ route('currency.index') }}" class="btn btn-primary mt-4">Currency Managment</a>
             <a href="{{ route('company.index') }}" class="btn btn-primary mt-4">Company Management</a>
-            <li>Product Management</li>
+            <a href="{{ route('product.index') }}" class="btn btn-primary mt-4">Product Management</a>
             <li>Supplier Management</li>
             <li>Customer Management</li>
             <li>Expense Management</li>
