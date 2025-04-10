@@ -24,5 +24,5 @@ Route::put('/companies/{id}/update', [CompanyController::class, 'update'])->name
 // Product
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+Route::put('/product', [ProductController::class, 'store'])->name('product.store');
 Route::put('/product/{id}/update', [ProductController::class, 'update'])->name('product.update');
