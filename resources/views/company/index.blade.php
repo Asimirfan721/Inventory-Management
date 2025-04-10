@@ -65,10 +65,10 @@
   </table>
 </div>
 
-<!-- Add Currency Modal -->
+<!-- Add Company Modal -->
 <div class="modal fade" id="addCurrencyModal" tabindex="-1" role="dialog" aria-labelledby="addCurrencyModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ route('company.store') }}" method="POST">
+    <form id="addCompanyForm" action="{{ route('company.store') }}" method="POST">
         @csrf
         <div class="modal-content">
           <div class="modal-header">
@@ -79,11 +79,15 @@
           </div>
           <div class="modal-body">
                 <div class="form-group">
-                    <label>company</label>
+                    <label>Logo</label>
                     <input type="text" name="company" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label>Code</label>
+                    <label>Name</label>
+                    <input type="text" name="code" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Currency</label>
                     <input type="text" name="code" class="form-control" required>
                 </div>
           </div>
@@ -95,4 +99,40 @@
     </form>
   </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#addCompanyForm').on('submit', function(e) {
+            e.preventDefault();
+            let formData = $(this).serialize();
+
+            $.ajax({
+                url: $(this).attr('action'),
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        let newRow = `
+                            <tr>
+                                <td>${response.company.id}</td>
+                                <td>${response.company.code}</td>
+                                <td>${response.company.company}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal${response.company.id}">Edit</button>
+                                </td>
+                            </tr>
+                        `;
+                        $('table tbody').append(newRow);
+                        $('#addCurrencyModal').modal('hide');
+                        $('#addCompanyForm')[0].reset();
+                    } else {
+                        alert('Error adding company');
+                    }
+                },
+                error: function() {
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
+    });
+</script>
 @endsection
