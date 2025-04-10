@@ -4,7 +4,7 @@
 <div class="container">
     <h4 class="mb-4">Company Management</h4>
 
-    <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Back</a>
+    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addCompanyModal">+ Create Company</button>
 
     <table class="table table-bordered" id="companyTable">
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             @foreach($companies as $index => $company)
-            <tr>
+            <tr id="row-{{ $company->id }}">
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $company->Logo }}</td>
                 <td>{{ $company->Name }}</td>
@@ -28,40 +28,44 @@
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $company->id }}">Edit</button>
                 </td>
             </tr>
-
-            <!-- Edit Modal -->
-            <div class="modal fade" id="editModal{{ $company->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $company->id }}" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <form action="{{ route('company.update', $company->id) }}" method="POST">
-                        @csrf
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Edit Company</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                <label>Logo</label>
-<input type="text" name="Logo" class="form-control" required>
-
-<label>Name</label>
-<input type="text" name="Company" class="form-control" required>
-
-<label>Currency</label>
-<input type="text" name="currency" class="form-control" required>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Update</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
             @endforeach
         </tbody>
     </table>
 </div>
+
+<!-- Edit Modals -->
+@foreach($companies as $company)
+<div class="modal fade" id="editModal{{ $company->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $company->id }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="{{ route('company.update', $company->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Company</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Logo</label>
+                        <input type="text" name="Logo" class="form-control" value="{{ $company->Logo }}" required>
+
+                        <label>Name</label>
+                        <input type="text" name="Name" class="form-control" value="{{ $company->Name }}" required>
+
+                        <label>Currency</label>
+                        <input type="text" name="currency" class="form-control" value="{{ $company->currency }}" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@endforeach
 
 <!-- Add Company Modal -->
 <div class="modal fade" id="addCompanyModal" tabindex="-1" role="dialog" aria-labelledby="addCompanyModalLabel" aria-hidden="true">
@@ -110,10 +114,10 @@
                 success: function (response) {
                     if (response.success) {
                         let newRow = `
-                            <tr>
-                                <td>#</td>
-                                <td>${response.company.logo}</td>
-                                <td>${response.company.name}</td>
+                            <tr id="row-${response.company.id}">
+                                <td>${$('#companyTable tbody tr').length + 1}</td>
+                                <td>${response.company.Logo}</td>
+                                <td>${response.company.Name}</td>
                                 <td>${response.company.currency}</td>
                                 <td>
                                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal${response.company.id}">Edit</button>
@@ -129,7 +133,7 @@
                 },
                 error: function (xhr) {
                     console.error(xhr.responseText);
-                    alert('An error occurred.');
+                    alert('An error occurred while adding company.');
                 }
             });
         });

@@ -5,7 +5,7 @@
 
   <h4 class="mb-4">Currency Management</h4>
 
-  <a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">Back</a>
+  <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
   <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addCurrencyModal">+ Create Currency</button>
 
   <table class="table table-bordered">
