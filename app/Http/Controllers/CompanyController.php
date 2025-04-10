@@ -12,17 +12,20 @@ class CompanyController extends Controller
     return view('company.index', compact('companies'));
 }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'Currency' => 'required|string|max:10',
-            'Name' => 'required|string|max:255',
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'Logo' => 'required|string',
+        'Company' => 'required|string|max:255',
+        'Currency' => 'required|string|max:50',
+    ]);
 
-        Companies::create([
-            'code' => $request->code,
-            'company' => $request->company,
-        ]);
+    Company::create([
+        'Logo' => $request->Logo,
+        'Company' => $request->Company,  // ✅ Correct field name
+        'Currency' => $request->currency,
+    ]);
+
 
         return redirect()->route('company.index')->with('success', 'Company added successfully!');
     }
