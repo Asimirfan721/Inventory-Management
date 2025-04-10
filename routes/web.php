@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CurrencyController; 
+use App\Http\Controllers\CompanyController;
+
 Route::get('/', function () {
     return view('home');
 });
