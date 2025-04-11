@@ -41,5 +41,16 @@ class CurrencyController extends Controller
 
     return redirect()->route('currency.index')->with('success', 'Currency updated successfully!');
 }
+public function destroy($id)
+{
+    // Find the currency by its ID
+    $currency = Currency::findOrFail($id);
+
+    // Delete the currency
+    $currency->delete();
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'Currency deleted successfully.');
+}
 
 }

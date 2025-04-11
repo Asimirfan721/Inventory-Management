@@ -26,7 +26,11 @@
         <td>
           <!-- Edit Button triggers modal -->
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $currency->id }}">Edit</button>
+          
+            <!-- Delete Button triggers modal -->
+        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $currency->id }}">Delete</button>
         </td>
+    
       </tr>
 
       <!-- Edit Modal -->
@@ -95,3 +99,30 @@
   </div>
 </div>
 @endsection
+
+<!-- Delete Modal -->
+@foreach($currencies as $currency)
+<div class="modal fade" id="deleteModal{{ $currency->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $currency->id }}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action="{{ route('currency.destroy', $currency->id) }}" method="POST">
+      @csrf
+      @method('DELETE')
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel{{ $currency->id }}">Delete Currency</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this currency?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+@endforeach
