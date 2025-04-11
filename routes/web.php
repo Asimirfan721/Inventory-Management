@@ -30,3 +30,11 @@ Route::get('/product', [ProductController::class, 'index'])->name('product.index
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::put('/product/{id}/update', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+
+// Supplier 
+// Supplier Routes
+Route::get('/suppliers', [SupplierController::class, 'index'])->name('supplier.index');
+Route::post('/suppliers', [SupplierController::class, 'store'])->name('supplier.store');
+Route::post('/suppliers/{id}', [SupplierController::class, 'update'])->name('supplier.update');
+Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy'])->name('supplier.destroy');
