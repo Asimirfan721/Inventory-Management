@@ -29,3 +29,4 @@ Route::delete('/company/{id}', [CompanyController::class, 'destroy'])->name('com
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::put('/product/{id}/update', [ProductController::class, 'update'])->name('product.update');
+Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');

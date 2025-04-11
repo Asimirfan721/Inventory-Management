@@ -26,7 +26,7 @@
                 <td>{{ $company->currency }}</td>
                 <td>
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $company->id }}">Edit</button>
-                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#deleteModal{{ $company->id }}">Delete</button>
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $company->id }}">Delete</button>
                 </td>
             </tr>
             @endforeach

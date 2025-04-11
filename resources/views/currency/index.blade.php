@@ -23,7 +23,7 @@
         <td>{{ $index + 1 }}</td>
         <td>{{ $currency->code }}</td>
         <td>{{ $currency->currency }}</td>
-        <td>
+        <td> 
           <!-- Edit Button triggers modal -->
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $currency->id }}">Edit</button>
           

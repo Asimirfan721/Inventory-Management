@@ -55,4 +55,15 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'Product updated successfully!');
     }
+    public function destroy($id)
+{
+    // Find the currency by its ID
+    $product = product::findOrFail($id);
+
+    // Delete the currency
+    $product->delete();
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'product deleted successfully.');
+}
 }
