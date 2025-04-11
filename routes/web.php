@@ -21,6 +21,7 @@ Route::delete('/currency/{id}', [CurrencyController::class, 'destroy'])->name('c
 Route::get('/companies', [CompanyController::class, 'index'])->name('company.index');
 Route::post('/companies', [CompanyController::class, 'store'])->name('company.store');
 Route::put('/companies/{id}/update', [CompanyController::class, 'update'])->name('company.update');
+Route::delete('/company/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
 
 
 // Product

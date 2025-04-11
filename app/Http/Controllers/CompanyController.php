@@ -52,4 +52,15 @@ class CompanyController extends Controller
 
         return redirect()->route('company.index')->with('success', 'Company updated successfully!');
     }
+    public function destroy($id)
+{
+    // Find the currency by its ID
+    $company = Company::findOrFail($id);
+
+    // Delete the currency
+    $company->delete();
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'Company deleted successfully.');
+}
 }

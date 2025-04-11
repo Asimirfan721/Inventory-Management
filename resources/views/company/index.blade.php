@@ -26,6 +26,7 @@
                 <td>{{ $company->currency }}</td>
                 <td>
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $company->id }}">Edit</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#deleteModal{{ $company->id }}">Delete</button>
                 </td>
             </tr>
             @endforeach
@@ -140,3 +141,31 @@
     });
 </script>
 @endsection
+
+
+<!-- Delete Modal -->
+@foreach($companies as $company)
+<div class="modal fade" id="deleteModal{{ $company->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $company->id }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="{{ route('company.destroy', $company->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel{{ $company->id }}">Delete Company</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this company?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@endforeach
