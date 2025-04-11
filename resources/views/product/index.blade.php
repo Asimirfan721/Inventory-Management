@@ -11,6 +11,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
+      <th>No</th>
         <th>Product</th>
         <th>Category</th>
         <th>Brand</th>
@@ -21,14 +22,15 @@
     <tbody>
       @foreach($products as $index => $product)
       <tr>
-        <td>{{ $index + 1 }}</td>
-        <td>{{ $product->code }}</td>
-        <td>{{ $product->product }}</td>
-        <td>
-          <!-- Edit Button triggers modal -->
-          <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $product->id }}">Edit</button>
-        </td>
-      </tr>
+  <td>{{ $index + 1 }}</td>
+  <td>{{ $product->product }}</td>
+  <td>{{ $product->category }}</td>
+  <td>{{ $product->brand }}</td>
+  <td>{{ $product->SKU }}</td>
+  <td>
+    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $product->id }}">Edit</button>
+  </td>
+</tr>
 
       <!-- Edit Modal -->
       <div class="modal fade" id="editModal{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $product->id }}" aria-hidden="true">
