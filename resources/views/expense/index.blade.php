@@ -12,10 +12,13 @@
     <thead>
       <tr>
         <th>No</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Address</th>
+        <th>Expense_ID</th>
+        <th>Date</th>
+        <th>Note</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Account</th>
+        <th>Remarks</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -23,10 +26,13 @@
       @foreach($expenses as $index => $expense)
       <tr>
         <td>{{ $index + 1 }}</td>
-        <td>{{ $expense->name }}</td>
-        <td>{{ $expense->email }}</td>
-        <td>{{ $expense->phone }}</td>
-        <td>{{ $expense->address }}</td>
+        <td>{{ $expense->Expense_ID }}</td>
+        <td>{{ $expense->Date }}</td>
+        <td>{{ $expense->Note }}</td>
+        <td>{{ $expense->Type }}</td>
+        <td>{{ $expense->Amount }}</td>
+        <td>{{ $expense->Account }}</td>
+        <td>{{ $expense->Remarks }}</td>
         <td>
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $expense->id }}">Edit</button>
           <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $expense->id }}">Delete</button>
@@ -48,19 +54,19 @@
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <label>Name</label>
+                  <label>Note</label>
                   <input type="text" name="name" class="form-control" value="{{ $expense->name }}" required>
                 </div>
                 <div class="form-group">
-                  <label>Email</label>
+                  <label>Type</label>
                   <input type="email" name="email" class="form-control" value="{{ $expense->email }}" required>
                 </div>
                 <div class="form-group">
-                  <label>Phone</label>
+                  <label>Account</label>
                   <input type="text" name="phone" class="form-control" value="{{ $expense->phone }}" required>
                 </div>
                 <div class="form-group">
-                  <label>Address</label>
+                  <label>Remarks</label>
                   <input type="text" name="address" class="form-control" value="{{ $expense->address }}" required>
                 </div>
               </div>
@@ -91,20 +97,32 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Name</label>
-            <input type="text" name="name" class="form-control" required>
+            <label>Expense ID</label>
+            <input type="text" name="expense" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" required>
+            <label>Date</label>
+            <input type="email" name="date" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Phone</label>
-            <input type="text" name="phone" class="form-control" required>
+            <label>Note</label>
+            <input type="text" name="note" class="form-control" required>
           </div>
           <div class="form-group">
-            <label>Address</label>
-            <input type="text" name="address" class="form-control" required>
+            <label>Type</label>
+            <input type="text" name="type" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Amount</label>
+            <input type="text" name="amount" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Account</label>
+            <input type="text" name="account" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Remarks</label>
+            <input type="text" name="remarks" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
