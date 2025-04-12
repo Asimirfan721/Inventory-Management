@@ -1,12 +1,12 @@
-@extends('layouts.app') <!-- or any layout you're using -->
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
 
-  <h4 class="mb-4">expense Management</h4>
+  <h4 class="mb-4">Expense Management</h4>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addexpenseModal">+ Create expense</button>
+  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addexpenseModal">+ Create Expense</button>
 
   <table class="table table-bordered">
     <thead>
@@ -47,32 +47,77 @@
             @method('PUT')
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Edit expense</h5>
+                <h5 class="modal-title">Edit Expense</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span>&times;</span>
                 </button>
               </div>
               <div class="modal-body">
+
+                <div class="form-group">
+                  <label>Expense_ID</label>
+                  <input type="text" name="expense_id" class="form-control" value="{{ $expense->expense_id }}" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Date</label>
+                  <input type="date" name="date" class="form-control" value="{{ $expense->date }}" required>
+                </div>
+
                 <div class="form-group">
                   <label>Note</label>
-                  <input type="text" name="name" class="form-control" value="{{ $expense->name }}" required>
+                  <input type="text" name="note" class="form-control" value="{{ $expense->note }}" required>
                 </div>
+
                 <div class="form-group">
                   <label>Type</label>
-                  <input type="email" name="email" class="form-control" value="{{ $expense->email }}" required>
+                  <input type="text" name="type" class="form-control" value="{{ $expense->type }}" required>
                 </div>
+
+                <div class="form-group">
+                  <label>Amount</label>
+                  <input type="number" step="0.01" name="amount" class="form-control" value="{{ $expense->amount }}" required>
+                </div>
+
                 <div class="form-group">
                   <label>Account</label>
-                  <input type="text" name="phone" class="form-control" value="{{ $expense->phone }}" required>
+                  <input type="text" name="account" class="form-control" value="{{ $expense->account }}" required>
                 </div>
+
                 <div class="form-group">
                   <label>Remarks</label>
-                  <input type="text" name="address" class="form-control" value="{{ $expense->address }}" required>
+                  <input type="text" name="remarks" class="form-control" value="{{ $expense->remarks }}">
                 </div>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete Modal -->
+      <div class="modal fade" id="deleteModal{{ $expense->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $expense->id }}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <form action="{{ route('expense.destroy', $expense->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Delete Expense</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete this expense?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
               </div>
             </div>
           </form>
@@ -83,81 +128,62 @@
   </table>
 </div>
 
-<!-- Add expense Modal -->
+<!-- Add Expense Modal -->
 <div class="modal fade" id="addexpenseModal" tabindex="-1" role="dialog" aria-labelledby="addexpenseModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form action="{{ route('expense.store') }}" method="POST">
       @csrf
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addSexpenseModalLabel">Add expense</h5>
+          <h5 class="modal-title">Add Expense</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span>&times;</span>
           </button>
         </div>
         <div class="modal-body">
+
           <div class="form-group">
             <label>Expense_ID</label>
-            <input type="text" name="Expense_ID" class="form-control" required>
+            <input type="text" name="expense_id" class="form-control" required>
           </div>
+
           <div class="form-group">
             <label>Date</label>
             <input type="date" name="date" class="form-control" required>
           </div>
+
           <div class="form-group">
             <label>Note</label>
-            <input type="text" name="Note" class="form-control" required>
+            <input type="text" name="note" class="form-control" required>
           </div>
+
           <div class="form-group">
             <label>Type</label>
-            <input type="text" name="Type" class="form-control" required>
+            <input type="text" name="type" class="form-control" required>
           </div>
+
           <div class="form-group">
             <label>Amount</label>
-            <input type="text" name="Amount" class="form-control" required>
+            <input type="number" step="0.01" name="amount" class="form-control" required>
           </div>
+
           <div class="form-group">
             <label>Account</label>
-            <input type="text" name="Account" class="form-control" required>
+            <input type="text" name="account" class="form-control" required>
           </div>
+
           <div class="form-group">
             <label>Remarks</label>
-            <input type="text" name="Remarks" class="form-control" required>
+            <input type="text" name="remarks" class="form-control">
           </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="submit" class="btn btn-primary">Save Expense</button>
         </div>
       </div>
     </form>
   </div>
 </div>
- 
-<!-- Delete Modals -->
-@foreach($expenses as $expense)
-<div class="modal fade" id="deleteModal{{ $expense->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $expense->id }}" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <form action="{{ route('expense.destroy', $expense->id) }}" method="POST">
-      @csrf
-      @method('DELETE')
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel{{ $expense->id }}">Delete expense</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete this expense?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-@endforeach
 @endsection
