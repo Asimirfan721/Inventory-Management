@@ -43,7 +43,7 @@ Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy'])->name('
 
 
 //Customer Routes
-Route::get('/customer', [CustomerrController::class, 'index'])->name('customer.index');
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
 Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');
 Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customer.update');
 Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');

@@ -3,10 +3,10 @@
 @section('content')
 <div class="container">
 
-  <h4 class="mb-4">Customer Management</h4>
+  <h4 class="mb-4">expense Management</h4>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addCustomerModal">+ Create Customer</button>
+  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addexpenseModal">+ Create expense</button>
 
   <table class="table table-bordered">
     <thead>
@@ -20,28 +20,28 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($customers as $index => $customer)
+      @foreach($expenses as $index => $expense)
       <tr>
         <td>{{ $index + 1 }}</td>
-        <td>{{ $customer->name }}</td>
-        <td>{{ $customer->email }}</td>
-        <td>{{ $customer->phone }}</td>
-        <td>{{ $customer->address }}</td>
+        <td>{{ $expense->name }}</td>
+        <td>{{ $expense->email }}</td>
+        <td>{{ $expense->phone }}</td>
+        <td>{{ $expense->address }}</td>
         <td>
-          <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $customer->id }}">Edit</button>
-          <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $customer->id }}">Delete</button>
+          <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $expense->id }}">Edit</button>
+          <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $expense->id }}">Delete</button>
         </td>
       </tr>
 
       <!-- Edit Modal -->
-      <div class="modal fade" id="editModal{{ $customer->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $customer->id }}" aria-hidden="true">
+      <div class="modal fade" id="editModal{{ $expense->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $expense->id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <form action="{{ route('customer.update', $customer->id) }}" method="POST">
+          <form action="{{ route('expense.update', $expense->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Edit Customer</h5>
+                <h5 class="modal-title">Edit expense</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span>&times;</span>
                 </button>
@@ -49,19 +49,19 @@
               <div class="modal-body">
                 <div class="form-group">
                   <label>Name</label>
-                  <input type="text" name="name" class="form-control" value="{{ $customer->name }}" required>
+                  <input type="text" name="name" class="form-control" value="{{ $expense->name }}" required>
                 </div>
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="email" name="email" class="form-control" value="{{ $customer->email }}" required>
+                  <input type="email" name="email" class="form-control" value="{{ $expense->email }}" required>
                 </div>
                 <div class="form-group">
                   <label>Phone</label>
-                  <input type="text" name="phone" class="form-control" value="{{ $customer->phone }}" required>
+                  <input type="text" name="phone" class="form-control" value="{{ $expense->phone }}" required>
                 </div>
                 <div class="form-group">
                   <label>Address</label>
-                  <input type="text" name="address" class="form-control" value="{{ $customer->address }}" required>
+                  <input type="text" name="address" class="form-control" value="{{ $expense->address }}" required>
                 </div>
               </div>
               <div class="modal-footer">
@@ -77,14 +77,14 @@
   </table>
 </div>
 
-<!-- Add Customer Modal -->
-<div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+<!-- Add expense Modal -->
+<div class="modal fade" id="addexpenseModal" tabindex="-1" role="dialog" aria-labelledby="addexpenseModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ route('customer.store') }}" method="POST">
+    <form action="{{ route('expense.store') }}" method="POST">
       @csrf
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addSCustomerModalLabel">Add Customer</h5>
+          <h5 class="modal-title" id="addSexpenseModalLabel">Add expense</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span>&times;</span>
           </button>
@@ -117,21 +117,21 @@
 </div>
  
 <!-- Delete Modals -->
-@foreach($customers as $customer)
-<div class="modal fade" id="deleteModal{{ $customer->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $customer->id }}" aria-hidden="true">
+@foreach($expenses as $expense)
+<div class="modal fade" id="deleteModal{{ $expense->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $expense->id }}" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{ route('customer.destroy', $customer->id) }}" method="POST">
+    <form action="{{ route('expense.destroy', $expense->id) }}" method="POST">
       @csrf
       @method('DELETE')
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel{{ $customer->id }}">Delete Customer</h5>
+          <h5 class="modal-title" id="deleteModalLabel{{ $expense->id }}">Delete expense</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span>&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Are you sure you want to delete this Customer?
+          Are you sure you want to delete this expense?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
