@@ -13,30 +13,53 @@ class ExpenseController extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'name' => 'required|string',
-            'amount' => 'required|numeric',
+            'Expense_ID' => 'required|integer',
             'date' => 'required|date',
-            'description' => 'nullable|string'
+            'Note' => 'required|string',
+            'Type' => 'required|string',
+            'Amount' => 'required|numeric',
+            'Account' => 'required|string',
+            'Remarks' => 'nullable|string'
         ]);
-
-        Expense::create($request->all());
-
+    
+        Expense::create([
+            'expense_id' => $request->Expense_ID,
+            'date' => $request->date,
+            'note' => $request->Note,
+            'type' => $request->Type,
+            'amount' => $request->Amount,
+            'account' => $request->Account,
+            'remarks' => $request->Remarks,
+        ]);
+    
         return redirect()->route('expense.index')->with('success', 'Expense created successfully.');
     }
+    
     public function update(Request $request, $id){
         $request->validate([
-            'name' => 'required|string',
-            'amount' => 'required|numeric',
+            'Expense_ID' => 'required|integer',
             'date' => 'required|date',
-            'description' => 'nullable|string'
+            'Note' => 'required|string',
+            'Type' => 'required|string',
+            'Amount' => 'required|numeric',
+            'Account' => 'required|string',
+            'Remarks' => 'nullable|string'
         ]);
-
+    
         $expense = Expense::findOrFail($id);
-        $expense->update($request->all());
-
+        $expense->update([
+            'expense_id' => $request->Expense_ID,
+            'date' => $request->date,
+            'note' => $request->Note,
+            'type' => $request->Type,
+            'amount' => $request->Amount,
+            'account' => $request->Account,
+            'remarks' => $request->Remarks,
+        ]);
+    
         return redirect()->route('expense.index')->with('success', 'Expense updated successfully.');
     }
-    public function destroy($id){
+        public function destroy($id){
         $expense = Expense::findOrFail($id);
         $expense->delete();
 

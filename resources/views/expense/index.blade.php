@@ -26,13 +26,13 @@
       @foreach($expenses as $index => $expense)
       <tr>
         <td>{{ $index + 1 }}</td>
-        <td>{{ $expense->Expense_ID }}</td>
-        <td>{{ $expense->Date }}</td>
-        <td>{{ $expense->Note }}</td>
-        <td>{{ $expense->Type }}</td>
-        <td>{{ $expense->Amount }}</td>
-        <td>{{ $expense->Account }}</td>
-        <td>{{ $expense->Remarks }}</td>
+        <td>{{ $expense->expense_id }}</td>
+        <td>{{ $expense->date }}</td>
+        <td>{{ $expense->note }}</td>
+        <td>{{ $expense->type }}</td>
+        <td>{{ $expense->amount }}</td>
+        <td>{{ $expense->account }}</td>
+        <td>{{ $expense->remarks }}</td>
         <td>
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $expense->id }}">Edit</button>
           <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $expense->id }}">Delete</button>
@@ -97,32 +97,32 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Expense ID</label>
-            <input type="text" name="expense" class="form-control" required>
+            <label>Expense_ID</label>
+            <input type="text" name="Expense_ID" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Date</label>
-            <input type="email" name="date" class="form-control" required>
+            <input type="date" name="date" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Note</label>
-            <input type="text" name="note" class="form-control" required>
+            <input type="text" name="Note" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Type</label>
-            <input type="text" name="type" class="form-control" required>
+            <input type="text" name="Type" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Amount</label>
-            <input type="text" name="amount" class="form-control" required>
+            <input type="text" name="Amount" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Account</label>
-            <input type="text" name="account" class="form-control" required>
+            <input type="text" name="Account" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Remarks</label>
-            <input type="text" name="remarks" class="form-control" required>
+            <input type="text" name="Remarks" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">
