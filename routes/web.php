@@ -5,7 +5,7 @@ use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
-
+use App\Http\Controllers\CustomerController;
 Route::get('/', function () {
     return view('home');
 });
