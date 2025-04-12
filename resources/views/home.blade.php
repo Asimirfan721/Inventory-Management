@@ -56,7 +56,7 @@
             <a href="{{ route('company.index') }}" class="btn btn-primary mt-4">Company Management</a>
             <a href="{{ route('product.index') }}" class="btn btn-primary mt-4">Product Management</a>
             <a href="{{ route('supplier.index') }}" class="btn btn-primary mt-4">Supplier Management</a>
-            <li>Customer Management</li>
+            <a href="{{ route('customer.index') }}" class="btn btn-primary mt-4">Customer Management</a>
             <li>Expense Management</li>
             <li>Account Management</li>
             <li>Transfer Product</li>

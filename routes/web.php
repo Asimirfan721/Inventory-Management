@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CurrencyController; 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 
 Route::get('/', function () {
     return view('home');
@@ -36,5 +37,13 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('pro
 // Supplier Routes
 Route::get('/suppliers', [SupplierController::class, 'index'])->name('supplier.index');
 Route::post('/suppliers', [SupplierController::class, 'store'])->name('supplier.store');
-Route::post('/suppliers/{id}', [SupplierController::class, 'update'])->name('supplier.update');
+Route::put('/suppliers/{id}', [SupplierController::class, 'update'])->name('supplier.update');
 Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy'])->name('supplier.destroy');
+
+
+
+//Customer Routes
+Route::get('/customer', [CustomerrController::class, 'index'])->name('customer.index');
+Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');
+Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customer.update');
+Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
