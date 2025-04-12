@@ -6,6 +6,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ExpenseController;
 Route::get('/', function () {
     return view('home');
 });
@@ -47,3 +48,10 @@ Route::get('/customer', [CustomerController::class, 'index'])->name('customer.in
 Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');
 Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customer.update');
 Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+
+
+//Expense Management
+Route::get('/expense', [ExpenseController::class, 'index'])->name('expense.index');
+Route::post('/expenses', [ExpenseController::class, 'store'])->name('expense.store');
+Route::put('/expenses/{id}', [ExpenseController::class, 'update'])->name('expense.update');
+Route::delete('/expense/{id}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
