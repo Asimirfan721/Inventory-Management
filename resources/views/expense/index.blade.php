@@ -14,8 +14,8 @@
         <th>No</th>
         <th>Expense_ID</th>
         <th>Date</th>
-        <th>Note</th>
-        <th>Type</th>
+        <th>Expense Type</th>
+        <th>IN/OuT</th>
         <th>Amount</th>
         <th>Account</th>
         <th>Remarks</th>
