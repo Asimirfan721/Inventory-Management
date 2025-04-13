@@ -28,7 +28,7 @@
         <td>{{ $account->phone }}</td>
         <td>{{ $account->description }}</td>
         <td>{{ $account->balance }}</td>
-        <td>{{ $account->Account_number }}</td>
+        <td>{{ $account->account_number }}</td>
         <td>
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $account->id }}">Edit</button>
           <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $account->id }}">Delete</button>
@@ -36,26 +36,48 @@
       </tr>
 
       <!-- Edit Modal -->
-      <div class="form-group">
-  <label>Name</label>
-  <input type="text" name="name" class="form-control" value="{{ $account->name }}" required>
-</div>
-<div class="form-group">
-  <label>Phone</label>
-  <input type="text" name="phone" class="form-control" value="{{ $account->phone }}" required>
-</div>
-<div class="form-group">
-  <label>Description</label>
-  <input type="text" name="description" class="form-control" value="{{ $account->description }}" required>
-</div>
-
-<div class="form-group">
-  <label>Balance</label>
-  <input type="text" name="balance" class="form-control" value="{{ $account->balance }}" required>
-</div>
-<div class="form-group">
-  <label>Account_number</label>
-  <input type="text" name="Account_number" class="form-control" value="{{ $account->Account_number }}" required>
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal{{ $account->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $account->id }}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action="{{ route('account.update', $account->id) }}" method="POST">
+      @csrf
+      @method('PUT')
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel{{ $account->id }}">Edit Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" value="{{ $account->name }}" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" name="phone" class="form-control" value="{{ $account->phone }}">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" name="description" class="form-control" value="{{ $account->description }}">
+          </div>
+          <div class="form-group">
+            <label>Balance</label>
+            <input type="number" step="0.01" name="balance" class="form-control" value="{{ $account->balance }}">
+          </div>
+          <div class="form-group">
+            <label>Account Number</label>
+            <input type="text" name="account_number" class="form-control" value="{{ $account->account_number }}">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
           
               </div>
