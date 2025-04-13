@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\AccountController;
 Route::get('/', function () {
     return view('home');
 });
@@ -55,3 +56,10 @@ Route::get('/expense', [ExpenseController::class, 'index'])->name('expense.index
 Route::post('/expenses', [ExpenseController::class, 'store'])->name('expense.store');
 Route::put('/expenses/{id}', [ExpenseController::class, 'update'])->name('expense.update');
 Route::delete('/expense/{id}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
+ 
+
+//Account Management
+Route::get('/account', [AccountController::class, 'index'])->name('account.index');
+Route::post('/accounts', [AccountController::class, 'store'])->name('account.store');
+Route::put('/accounts/{id}', [AccountController::class, 'update'])->name('account.update');
+Route::delete('/account/{id}', [AccountController::class, 'destroy'])->name('account.destroy');
