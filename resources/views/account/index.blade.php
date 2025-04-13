@@ -123,23 +123,23 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Name</label>
-            <input type="text" name="name" class="form-control" required>
+            <input type="text" name="name" class="form-control" placeholder ="Enter your Name" required>
           </div>
           <div class="form-group">
             <label>Phone</label>
-            <input type="text" name="phone" class="form-control" required>
+            <input type="text" name="phone" class="form-control" placeholder ="Enter your Number"required>
           </div>
           <div class="form-group">
   <label>Balance</label>
-  <input type="number" step="0.01" name="balance" class="form-control" required>
+  <input type="number" step="0.01" name="balance" class="form-control" placeholder ="Enter your Amount" required>
 </div>
           <div class="form-group">
             <label>Description</label>
-            <input type="text" name="description" class="form-control" required>
+            <input type="text" name="description" class="form-control" placeholder ="Enter your Description" required>
           </div>
           <div class="form-group">
             <label>Account Number</label>
-            <input type="text" name="account_number" class="form-control" required>
+            <input type="text" name="account_number" class="form-control" placeholder ="Enter your Account Number" required>
           </div>
         </div>
         <div class="modal-footer">
