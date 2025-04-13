@@ -15,30 +15,32 @@ class AccountController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'name'            => 'required|string|max:255',
-            'email'           => 'nullable|email',
-            'phone'           => 'nullable|string|max:20',
-            'account_number'  => 'required|string|max:100',
-        ]);
+{
+    $request->validate([
+        'name'           => 'required|string|max:255',
+        'phone'          => 'nullable|string|max:20',
+        'account_number' => 'required|string|max:100',
+        'description'    => 'nullable|string|max:500',
+        'balance'        => 'nullable|numeric|min:0',
+    ]);
 
-        Account::create([
-            'name'           => $request->name,
-            'email'          => $request->email,
-            'phone'          => $request->phone,
-            'account_number' => $request->account_number,
-        ]);
+    Account::create([
+        'name'           => $request->name,
+        'phone'          => $request->phone,
+        'description'    => $request->description,
+        'balance'        => $request->balance ?? 0,
+        'account_number' => $request->account_number,
+    ]);
 
-        return redirect()->back()->with('success', 'Account created successfully.');
-    }
+    return redirect()->back()->with('success', 'Account created successfully.');
+}
+
 
     public function update(Request $request, $id)
     {
         $request->validate([
             'name'            => 'required|string|max:255',
-            'email'           => 'nullable|email',
-            'phone'           => 'nullable|string|max:20',
+             'phone'           => 'nullable|string|max:20',
             'description'     => 'nullable|string',
             'balance'         => 'nullable|numeric',
             'account_number'  => 'required|string|max:100',
