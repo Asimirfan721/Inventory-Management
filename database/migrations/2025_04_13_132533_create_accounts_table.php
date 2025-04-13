@@ -15,7 +15,6 @@ return new class extends Migration
             
             $table->id();
             $table->string('name');
-            $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->text('description')->nullable();
             $table->decimal('balance', 15, 2)->default(0);

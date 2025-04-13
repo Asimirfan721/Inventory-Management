@@ -111,14 +111,15 @@
             <label>Name</label>
             <input type="text" name="name" class="form-control" required>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" required>
-          </div>
-          <div class="form-group">
+           <div class="form-group">
             <label>Phone</label>
             <input type="text" name="phone" class="form-control" required>
           </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" name="description" class="form-control" required>
+          </div>
+         
           <div class="form-group">
             <label>Account_number</label>
             <input type="text" name="account_number" class="form-control" required>
