@@ -14,7 +14,6 @@ class Account extends Model
         'email',
         'phone',
         'description',
-        'address',
         'balance',
         'account_number',
     ];
