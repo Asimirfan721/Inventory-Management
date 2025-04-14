@@ -61,11 +61,11 @@
 </select>   </div>
               <div class="form-group">
                 <label>Brand</label>
-                <input type="text" name="brand" class="form-control" value="{{ $product->code }}" required>
+                <input type="text" name="brand" class="form-control" value="{{ $product->brand }}" required>
               </div>
               <div class="form-group">
                 <label>SKU</label>
-                <input type="text" name="SKU" class="form-control" value="{{ $product->code }}" required>
+                <input type="text" name="SKU" class="form-control" value="{{ $product->SKU }}" required>
               </div>
             </div>
             <div class="modal-footer">
