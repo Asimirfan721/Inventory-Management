@@ -81,15 +81,15 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Logo</label>
-                        <input type="text" name="Logo" class="form-control" required>
+                        <input type="text" name="Logo" class="form-control" placeholder="Enter logo details" required>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="Name" class="form-control" required>
+                        <input type="text" name="Name" class="form-control" placeholder="Company Name" required>
                     </div>
                     <div class="form-group">
                         <label>Currency</label>
-                        <input type="text" name="currency" class="form-control" required>
+                        <input type="text" name="currency" class="form-control" placeholder="Company's Currency" required>
                     </div>
                 </div>
                 <div class="modal-footer">
