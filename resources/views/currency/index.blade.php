@@ -83,11 +83,11 @@
           <div class="modal-body">
                 <div class="form-group">
                     <label>Currency</label>
-                    <input type="text" name="currency" class="form-control" required>
+                    <input type="text" name="currency" class="form-control" placeholder="Name of currency" required>
                 </div>
                 <div class="form-group">
                     <label>Code</label>
-                    <input type="text" name="code" class="form-control" required>
+                    <input type="text" name="code" class="form-control" placeholder = "Shortcut key" required>
                 </div>
           </div>
           <div class="modal-footer">
