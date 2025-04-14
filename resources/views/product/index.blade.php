@@ -52,8 +52,13 @@
               </div>
               <div class="form-group">
                 <label>Category</label>
-                <input type="text" name="category" class="form-control" value="{{ $product->code }}" required>
-              </div>
+                <select name="category" class="form-control" required>
+  <option value="Electronics" {{ $product->category == 'Electronics' ? 'selected' : '' }}>Electronics</option>
+  <option value="Accessories" {{ $product->category == 'Accessories' ? 'selected' : '' }}>Accessories</option>
+  <option value="Clothes" {{ $product->category == 'Clothes' ? 'selected' : '' }}>Clothes</option>
+  <option value="Shoes" {{ $product->category == 'Shoes' ? 'selected' : '' }}>Shoes</option>
+  <option value="Watches" {{ $product->category == 'Watches' ? 'selected' : '' }}>Watches</option>
+</select>   </div>
               <div class="form-group">
                 <label>Brand</label>
                 <input type="text" name="brand" class="form-control" value="{{ $product->code }}" required>
@@ -95,8 +100,14 @@
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <input type="text" name="category" class="form-control" placeholder="Enter category Name"required>
-                </div>
+                    <select name="category" class="form-control" required>
+    <option value="" disabled selected>Select Category</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Accessories">Accessories</option>
+    <option value="Clothes">Clothes</option>
+    <option value="Shoes">Shoes</option>
+    <option value="Watches">Watches</option>
+  </select>
                 <div class="form-group">
                     <label>Brand</label>
                     <input type="text" name="brand" class="form-control"placeholder="Enter Brand Name" required>
