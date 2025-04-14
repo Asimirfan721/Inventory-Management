@@ -8,7 +8,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\AccountController;
-
+use App\Http\Controllers\StockController;
 Route::get('/', function () {
     return view('home');
 });
@@ -64,3 +64,10 @@ Route::get('/account', [AccountController::class, 'index'])->name('account.index
 Route::post('/accounts', [AccountController::class, 'store'])->name('account.store');
 Route::put('/accounts/{id}', [AccountController::class, 'update'])->name('account.update');
 Route::delete('/account/{id}', [AccountController::class, 'destroy'])->name('account.destroy');
+
+
+//Stock Management
+Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
+Route::post('/stocks', [StockController::class, 'store'])->name('stock.store');
+Route::put('/stocks/{id}', [StockController::class, 'update'])->name('stock.update');
+Route::delete('/stock/{id}', [StockController::class, 'destroy'])->name('stock.destroy');

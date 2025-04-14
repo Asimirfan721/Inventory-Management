@@ -59,7 +59,7 @@
             <a href="{{ route('customer.index') }}" class="btn btn-primary mt-4">Customer Management</a>
             <a href="{{ route('expense.index') }}" class="btn btn-primary mt-4">Expense Management</a>
             <a href="{{ route('account.index') }}" class="btn btn-primary mt-4">Account Management</a>
-              <li>Transfer Product</li>
+            <a href="{{ route('stock.index') }}" class="btn btn-primary mt-4">Stock Management</a>
             <li>Stock Management</li>
         </ul>
     </div>
