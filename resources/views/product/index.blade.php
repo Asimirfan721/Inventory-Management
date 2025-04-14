@@ -91,19 +91,19 @@
           <div class="modal-body">
                 <div class="form-group">
                     <label>Product</label>
-                    <input type="text" name="product" class="form-control" required>
+                    <input type="text" name="product" class="form-control" placeholder= "Product Name" required>
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <input type="text" name="category" class="form-control" required>
+                    <input type="text" name="category" class="form-control" placeholder="Enter category Name"required>
                 </div>
                 <div class="form-group">
                     <label>Brand</label>
-                    <input type="text" name="brand" class="form-control" required>
+                    <input type="text" name="brand" class="form-control"placeholder="Enter Brand Name" required>
                 </div>
                 <div class="form-group">
                     <label>SKU</label>
-                    <input type="text" name="SKU" class="form-control" required>
+                    <input type="text" name="SKU" class="form-control" placeholder="Total Number of Units"required>
                 </div>
           </div>
           <div class="modal-footer">
