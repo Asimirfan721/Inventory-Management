@@ -91,7 +91,7 @@
           <div class="modal-body">
                 <div class="form-group">
                     <label>Product</label>
-                    <input type="text" name="product" class="form-control" placeholder= "Product Name" required>
+                    <input type="text" name="product" class="form-control" placeholder="Product Name" required>
                 </div>
                 <div class="form-group">
                     <label>Category</label>

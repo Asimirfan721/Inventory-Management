@@ -123,7 +123,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Name</label>
-            <input type="text" name="name" class="form-control" placeholder ="Enter your Name" required>
+            <input type="text" name="name" class="form-control" placeholder ="Enter your Name" required>  
           </div>
           <div class="form-group">
             <label>Phone</label>
