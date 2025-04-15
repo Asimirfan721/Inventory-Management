@@ -3,13 +3,13 @@
 @section('content')
 <style>
     body {
-        background-color: #f1f3f6;
+        background-color:rgb(246, 241, 241);
     }
     .sidebar {
         height: 100vh;
-        background-color: #2c3e50;
+        background-color:rgb(13, 99, 42);
         color: #fff;
-        padding-top: 20px;
+        padding-top: 10px;
         position: fixed;
         width: 240px;
     }
@@ -19,10 +19,10 @@
     }
     .sidebar ul {
         list-style: none;
-        padding-left: 0;
+        padding-left: 10;
     }
     .sidebar ul li {
-        padding: 10px 20px;
+        padding: 10px 10px;
     }
     .sidebar ul li:hover {
         background-color: #34495e;
@@ -30,7 +30,7 @@
     }
     .main-content {
         margin-left: 240px;
-        padding: 20px;
+        padding: 40px;
     }
     .topbar {
         background-color: #ecf0f1;
@@ -41,7 +41,7 @@
         border-bottom: 1px solid #ccc;
     }
     .topbar h5 {
-        margin: 0;
+        margin: 10;
     }
 </style>
 
@@ -60,7 +60,7 @@
             <a href="{{ route('expense.index') }}" class="btn btn-primary mt-4">Expense Management</a>
             <a href="{{ route('account.index') }}" class="btn btn-primary mt-4">Account Management</a>
             <a href="{{ route('stock.index') }}" class="btn btn-primary mt-4">Stock Management</a>
-            <li>Stock Management</li>
+             
         </ul>
     </div>
 
