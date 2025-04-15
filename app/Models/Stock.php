@@ -13,4 +13,8 @@ class Stock extends Model
         'supplier',
         'total',
     ];
+
+    public function supplier() {
+        return $this->belongsTo(Supplier::class);
+    }
 }

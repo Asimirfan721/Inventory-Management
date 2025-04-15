@@ -67,7 +67,9 @@ Route::delete('/account/{id}', [AccountController::class, 'destroy'])->name('acc
 
 
 //Stock Management
-Route::get('/stock', [StockController::class, 'index'])->name('stocks.index');
+Route::get('/stockks', [StockController::class, 'index'])->name('stocks.index');
+
+Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
 Route::post('/stocks', [StockController::class, 'store'])->name('stocks.store');
 Route::put('/stocks/{id}', [StockController::class, 'update'])->name('stocks.update');
 Route::delete('/stock/{id}', [StockController::class, 'destroy'])->name('stocks.destroy');
