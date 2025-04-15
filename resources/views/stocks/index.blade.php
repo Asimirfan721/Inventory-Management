@@ -77,11 +77,9 @@
                 <td>{{ $stock->purchase_order }}</td>
                 <td>{{ $stock->date }}</td>
                 <td>{{ $stock->no_of_days }}</td>
-                
                 <td>{{ $stock->supplier->name ?? 'N/AA' }}</td>
                 <td>{{ $stock->total }}</td>
                 <td>
-                
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $stock->id }}">Edit</button>
                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $stock->id }}">Delete</button>
                 </td>
