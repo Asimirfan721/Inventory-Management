@@ -10,9 +10,11 @@ class StockController extends Controller
     // Display a listing of the stocks
     public function index()
     {
-        $stocks = Stock::all();
-        return view('stocks.index', compact('stocks'));
+        $stocks = Stock::with('supplier')->get();
+        $suppliers = Supplier::all();
+        return view('stocks.index', compact('stocks', 'suppliers'));
     }
+    
 
     // Store a newly created stock in storage
     public function store(Request $request)
@@ -23,6 +25,7 @@ class StockController extends Controller
             'no_of_days'     => 'required|integer',
             'supplier'       => 'required|string|max:255',
             'total'          => 'required|numeric',
+            'supplier_id' => 'required|exists:suppliers,id',
         ]);
 
         Stock::create([
@@ -31,6 +34,7 @@ class StockController extends Controller
             'no_of_days'     => $request->no_of_days,
             'supplier'       => $request->supplier,
             'total'          => $request->total,
+            'supplier_id'    => $request->supplier_id,
         ]);
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry created successfully.');
@@ -45,6 +49,7 @@ class StockController extends Controller
             'no_of_days'     => 'required|integer',
             'supplier'       => 'required|string|max:255',
             'total'          => 'required|numeric',
+            'supplier_id'    => 'required|exists:suppliers,id',
         ]);
 
         $stock = Stock::findOrFail($id);
@@ -55,6 +60,7 @@ class StockController extends Controller
             'no_of_days'     => $request->no_of_days,
             'supplier'       => $request->supplier,
             'total'          => $request->total,
+            'supplier_id'    => $request->supplier_id,
         ]);
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry updated successfully.');
