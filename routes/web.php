@@ -18,6 +18,8 @@ Route::get('/currencies', [CurrencyController::class, 'index'])->name('currency.
 Route::post('/currencies', [CurrencyController::class, 'store'])->name('currency.store');
 Route::post('/currencies/{id}/update', [CurrencyController::class, 'update'])->name('currency.update');
 Route::delete('/currency/{id}', [CurrencyController::class, 'destroy'])->name('currency.destroy');
+Route::get('/currency/create', [CurrencyController::class, 'create'])->name('currency.create');
+
 
 
 

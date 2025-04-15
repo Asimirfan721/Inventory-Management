@@ -16,6 +16,7 @@ class StockController extends Controller
         return view('stocks.index', compact('stocks', 'suppliers'));
     }
     
+  
 
     // Store a newly created stock in storage
     public function store(Request $request)

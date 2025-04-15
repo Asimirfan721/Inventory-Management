@@ -11,7 +11,10 @@ class CurrencyController extends Controller
     $currencies = Currency::all();
     return view('currency.index', compact('currencies'));
 }
-
+public function create()
+{
+    return view('currency.create');
+}
     public function store(Request $request)
     {
         $request->validate([
