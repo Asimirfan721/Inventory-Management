@@ -5,7 +5,7 @@
     <h4 class="mb-4">Add New Currency</h4>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
-    <a href="{{ route('currency.index') }}" class="btn btn-secondary mb-3">Back to Currency Page</a>
+    <a href="{{ route('currency.index') }}" class="btn btn-primary mb-3">Back to Currency Page</a>
 
     <form action="{{ route('currency.store') }}" method="POST">
         @csrf
