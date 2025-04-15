@@ -4,8 +4,8 @@
 <div class="container">
     <h4 class="mb-4">Company Management</h4>
 
-    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addCompanyModal">+ Create Company</button>
+    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
+    <a href="{{ route('company.create') }}" class="btn btn-primary mb-3">+ Create Company</a>
 
     <table class="table table-bordered" id="companyTable">
         <thead>

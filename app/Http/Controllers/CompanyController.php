@@ -63,4 +63,8 @@ class CompanyController extends Controller
     // Redirect back with success message
     return redirect()->back()->with('success', 'Company deleted successfully.');
 }
+public function create()
+{
+    return view('company.create');
+}
 }
