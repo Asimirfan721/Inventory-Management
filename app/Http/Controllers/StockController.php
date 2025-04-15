@@ -24,18 +24,18 @@ class StockController extends Controller
             'purchase_order' => 'required|string|max:255',
             'date'           => 'required|date',
             'no_of_days'     => 'required|integer',
-            'supplier'       => 'required|string|max:255',
-            'total'          => 'required|numeric',
             'supplier_id' => 'required|exists:suppliers,id',
+            'total'          => 'required|numeric',
+            
         ]);
 
         Stock::create([
             'purchase_order' => $request->purchase_order,
             'date'           => $request->date,
             'no_of_days'     => $request->no_of_days,
-            'supplier'       => $request->supplier,
-            'total'          => $request->total,
             'supplier_id'    => $request->supplier_id,
+            'total'          => $request->total,
+            
         ]);
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry created successfully.');
@@ -48,9 +48,9 @@ class StockController extends Controller
             'purchase_order' => 'required|string|max:255',
             'date'           => 'required|date',
             'no_of_days'     => 'required|integer',
-            'supplier'       => 'required|string|max:255',
-            'total'          => 'required|numeric',
             'supplier_id'    => 'required|exists:suppliers,id',
+            'total'          => 'required|numeric',
+            
         ]);
 
         $stock = Stock::findOrFail($id);
@@ -59,9 +59,9 @@ class StockController extends Controller
             'purchase_order' => $request->purchase_order,
             'date'           => $request->date,
             'no_of_days'     => $request->no_of_days,
-            'supplier'       => $request->supplier,
-            'total'          => $request->total,
             'supplier_id'    => $request->supplier_id,
+            'total'          => $request->total,
+            
         ]);
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry updated successfully.');

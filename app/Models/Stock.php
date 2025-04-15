@@ -10,7 +10,7 @@ class Stock extends Model
         'purchase_order',
         'date',
         'no_of_days',
-        'supplier',
+        'supplier_id',
         'total',
     ];
 

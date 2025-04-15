@@ -6,58 +6,53 @@
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addStockModal">+ Create Stock</button>
-
-    <!-- Add Stock Modal -->
-    <div class="modal fade" id="addStockModal" tabindex="-1" role="dialog" aria-labelledby="addStockModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <form action="{{ route('stocks.store') }}" method="POST">
-                @csrf
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addStockModalLabel">Create Stock</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span>&times;</span>
-                        </button>
+<!-- Add Stock Modal -->
+<div class="modal fade" id="addStockModal" tabindex="-1" role="dialog" aria-labelledby="addStockModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="{{ route('stocks.store') }}" method="POST">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addStockModalLabel">Create Stock</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Purchase Order</label>
+                        <input type="text" name="purchase_order" class="form-control" required>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Purchase Order</label>
-                            <input type="text" name="purchase_order" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Date</label>
-                            <input type="date" name="date" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>No of Days</label>
-                            <input type="number" name="no_of_days" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Supplier</label>
-                            <input type="text" name="supplier" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Total</label>
-                            <input type="number" step="0.01" name="total" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-    <label>Supplier</label>
-    <select name="supplier_id" class="form-control" required>
-        <option value="">Select Supplier</option>
-        @foreach($suppliers as $supplier)
-            <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
-        @endforeach
-    </select>
-</div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" name="date" class="form-control" required>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                    <div class="form-group">
+                        <label>No of Days</label>
+                        <input type="number" name="no_of_days" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Supplier</label>
+                        <select name="supplier_id" class="form-control" required>
+                            <option value="">Select Supplier</option>
+                            @foreach($suppliers as $supplier)
+                                <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" step="0.01" name="total" class="form-control" required>
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -82,7 +77,8 @@
                 <td>{{ $stock->purchase_order }}</td>
                 <td>{{ $stock->date }}</td>
                 <td>{{ $stock->no_of_days }}</td>
-                <td>{{ $stock->supplier->name ?? 'N/A' }}</td>
+                
+                <td>{{ $stock->supplier->name ?? 'N/AA' }}</td>
                 <td>{{ $stock->total }}</td>
                 <td>
                 
@@ -91,61 +87,58 @@
                 </td>
             </tr>
 
-            <!-- Edit Modal -->
-            <div class="modal fade" id="editModal{{ $stock->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $stock->id }}" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <form action="{{ route('stocks.update', $stock->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Edit Stock</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span>&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Purchase Order</label>
-                                    <input type="text" name="purchase_order" class="form-control" value="{{ $stock->purchase_order }}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Date</label>
-                                    <input type="date" name="date" class="form-control" value="{{ $stock->date }}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>No of Days</label>
-                                    <input type="number" name="no_of_days" class="form-control" value="{{ $stock->no_of_days }}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Supplier</label>
-                                    <input type="text" name="supplier" class="form-control" value="{{ $stock->supplier }}" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Total</label>
-                                    <input type="number" step="0.01" name="total" class="form-control" value="{{ $stock->total }}" required>
-                                </div>
-                                <div class="form-group">
-    <label>Supplier</label>
-    <select name="supplier_id" class="form-control" required>
-        <option value="">Select Supplier</option>
-        @foreach($suppliers as $supplier)
-            <option value="{{ $supplier->id }}" {{ $stock->supplier_id == $supplier->id ? 'selected' : '' }}>
-                {{ $supplier->name }}
-            </option>
-        @endforeach
-    </select>
-</div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Update</button>
-                            </div>
-                        </div>
-                    </form>
+           <!-- Edit Modal -->
+<div class="modal fade" id="editModal{{ $stock->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $stock->id }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="{{ route('stocks.update', $stock->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Stock</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Purchase Order</label>
+                        <input type="text" name="purchase_order" class="form-control" value="{{ $stock->purchase_order }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" name="date" class="form-control" value="{{ $stock->date }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>No of Days</label>
+                        <input type="number" name="no_of_days" class="form-control" value="{{ $stock->no_of_days }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Supplier</label>
+                        <select name="supplier_id" class="form-control" required>
+                            <option value="">Select Supplier</option>
+                            @foreach($suppliers as $supplier)
+                                <option value="{{ $supplier->id }}" {{ $stock->supplier_id == $supplier->id ? 'selected' : '' }}>
+                                    {{ $supplier->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" step="0.01" name="total" class="form-control" value="{{ $stock->total }}" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </div>
+        </form>
+    </div>
+</div>
 @endforeach
+
 
 <!-- Delete Modals -->
 @foreach($stocks as $stock)
