@@ -6,7 +6,7 @@
   <h4 class="mb-4">Supplier Management</h4>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addSupplierModal">+ Create Supplier</button>
+  <a href="{{ route('supplier.create') }}" class="btn btn-primary mb-3">+ Create Supplier</a>
 
   <table class="table table-bordered">
     <thead>

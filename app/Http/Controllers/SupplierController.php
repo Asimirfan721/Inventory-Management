@@ -47,4 +47,8 @@ class SupplierController extends Controller
 
         return redirect()->route('supplier.index')->with('success', 'Supplier deleted successfully.');
     }
+    public function create(){
+        return view('supplier.create');
+    }
+
 }
