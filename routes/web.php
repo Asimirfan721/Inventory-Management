@@ -36,7 +36,7 @@ Route::get('/product', [ProductController::class, 'index'])->name('product.index
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::put('/product/{id}/update', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
-
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 
 // Supplier 
 // Supplier Routes

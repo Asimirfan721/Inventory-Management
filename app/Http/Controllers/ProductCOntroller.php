@@ -66,4 +66,8 @@ class ProductController extends Controller
     // Redirect back with success message
     return redirect()->back()->with('success', 'product deleted successfully.');
 }
+public function create()
+{
+    return view('product.create')->with('success', 'Your success message here.');
+}
 }

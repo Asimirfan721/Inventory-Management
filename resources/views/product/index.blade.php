@@ -6,7 +6,7 @@
   <h4 class="mb-4">Product Management</h4>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addCurrencyModal">+ Create Product</button>
+  <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">+ Create Product</a>
 
   <table class="table table-bordered">
     <thead>
