@@ -52,7 +52,18 @@
         <ul>
             <li>Dashboard</li>
             <li>Access</li>
-            <a href="{{ route('currency.index') }}" class="btn btn-danger mt-4">Currency Managment</a>
+            <li class="mt-4">
+                <a data-bs-toggle="collapse" href="#userSubmenu" role="button" aria-expanded="false" aria-controls="userSubmenu" class="btn btn-secondary w-100 text-start">
+                    Currency Management ▾
+                </a>
+                <div class="collapse" id="userSubmenu">
+                    <ul class="list-unstyled ps-3 mt-2">
+                        <li><a href="{{ route('currency.create') }}" class="text-white d-block mb-1">Add Currency</a></li>
+                        <li><a href="{{ route('currency.index') }}" class="text-white d-block mb-1">Browse Currency</a></li>
+                    </ul>
+                </div>
+            </li>
+            
             <li class="mt-4">
     <a data-bs-toggle="collapse" href="#companySubmenu" role="button" aria-expanded="false"aria-controles="companySubmenu" class="btn btn-primary w-100 text-start">
         Company Management ▾
