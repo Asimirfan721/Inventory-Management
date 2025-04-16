@@ -66,7 +66,7 @@ Route::get('/account', [AccountController::class, 'index'])->name('account.index
 Route::post('/accounts', [AccountController::class, 'store'])->name('account.store');
 Route::put('/accounts/{id}', [AccountController::class, 'update'])->name('account.update');
 Route::delete('/account/{id}', [AccountController::class, 'destroy'])->name('account.destroy');
-
+Route::get('/account/create', [AccountController::class, 'create'])->name('account.create');
 
 //Stock Management
 Route::get('/stockks', [StockController::class, 'index'])->name('stocks.index');

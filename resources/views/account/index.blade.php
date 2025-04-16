@@ -5,7 +5,7 @@
   <h4 class="mb-4">Account Management</h4>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addaccountModal">+ Create Account</button>
+  <a href="{{ route('account.create') }}" class="btn btn-primary mb-3">+ Create Account</a>
 
   <table class="table table-bordered">
     <thead>

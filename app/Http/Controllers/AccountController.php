@@ -24,12 +24,13 @@ class AccountController extends Controller
         'balance'        => 'nullable|numeric|min:0',
     ]);
 
-    Account::create([
+    Account::create([ 
         'name'           => $request->name,
         'phone'          => $request->phone,
+        'account_number' => $request->account_number,
         'description'    => $request->description,
         'balance'        => $request->balance ?? 0,
-        'account_number' => $request->account_number,
+       
     ]);
 
     return redirect()->back()->with('success', 'Account created successfully.');
@@ -41,9 +42,10 @@ class AccountController extends Controller
         $request->validate([
             'name'            => 'required|string|max:255',
              'phone'           => 'nullable|string|max:20',
+             'account_number'  => 'required|string|max:100',
             'description'     => 'nullable|string',
             'balance'         => 'nullable|numeric',
-            'account_number'  => 'required|string|max:100',
+            
         ]);
 
         $account = Account::findOrFail($id);
@@ -58,5 +60,8 @@ class AccountController extends Controller
         $account->delete();
 
         return redirect()->back()->with('success', 'Account deleted successfully.');
+    }
+    public function create(){
+        return view('account.create');
     }
 }

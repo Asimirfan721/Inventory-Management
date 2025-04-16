@@ -57,7 +57,7 @@
             <a href="{{ route('product.index') }}" class="btn btn-danger mt-4">Product Management</a>
             <a href="{{ route('supplier.index') }}" class="btn btn-danger mt-4">Supplier Management</a>
             <a href="{{ route('customer.index') }}" class="btn btn-primary mt-4">Customer Management</a>
-            <a href="{{ route('expense.index') }}" class="btn btn-primary mt-4">Expense Management</a>
+            <a href="{{ route('expense.index') }}" class="btn btn-danger mt-4">Expense Management</a>
             <a href="{{ route('account.index') }}" class="btn btn-primary mt-4">Account Management</a>
             <a href="{{ route('stock.index') }}" class="btn btn-primary mt-4">Stock Management</a>
              
