@@ -54,7 +54,18 @@
             <li>Access</li>
             <a href="{{ route('currency.index') }}" class="btn btn-danger mt-4">Currency Managment</a>
             <a href="{{ route('company.index') }}" class="btn btn-primary mt-4">Company Management</a>
-            <a href="{{ route('product.index') }}" class="btn btn-secondary mt-4">Product Management</a>
+            <li class="mt-4">
+    <a data-bs-toggle="collapse" href="#productSubmenu" role="button" aria-expanded="false" aria-controls="productSubmenu" class="btn btn-secondary w-100 text-start">
+        Product Management ▾
+    </a>
+    <div class="collapse" id="productSubmenu">
+        <ul class="list-unstyled ps-3 mt-2">
+            <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Index</a></li>
+            <li><a href="{{ route('product.create') }}" class="text-white d-block mb-1">Add Product</a></li>
+            </ul>
+    </div>
+</li>
+
             <a href="{{ route('supplier.index') }}" class="btn btn-danger mt-4">Supplier Management</a>
             <a href="{{ route('customer.index') }}" class="btn btn-primary mt-4">Customer Management</a>
             <a href="{{ route('expense.index') }}" class="btn btn-secondary mt-4">Expense Management</a>
@@ -75,4 +86,6 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 @endsection
