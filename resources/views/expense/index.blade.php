@@ -6,7 +6,7 @@
   <h4 class="mb-4">Expense Management</h4>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
-  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addexpenseModal">+ Create Expense</button>
+    <a href="{{ route('expense.create') }}" class="btn btn-primary mb-3">+ Create Expense</a>
 
   <table class="table table-bordered">
     <thead>
