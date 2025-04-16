@@ -76,4 +76,7 @@ class StockController extends Controller
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry deleted successfully.');
     }
+    public function create(){
+        return view('stocks.create');
+    }
 }

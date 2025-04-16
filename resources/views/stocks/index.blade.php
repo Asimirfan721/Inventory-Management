@@ -5,7 +5,7 @@
     <h4 class="mb-4">Stock Management</h4>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addStockModal">+ Create Stock</button>
+    <a href="{{ route('stock.create') }}" class="btn btn-primary mb-3">+ Create Stock</a>
 <!-- Add Stock Modal -->
 <div class="modal fade" id="addStockModal" tabindex="-1" role="dialog" aria-labelledby="addStockModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
