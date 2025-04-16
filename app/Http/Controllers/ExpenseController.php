@@ -12,24 +12,24 @@ class ExpenseController extends Controller
         return view('expense.index', compact('expenses'));
     }
     public function store(Request $request){
-        $request->validate([
-            'Expense_ID' => 'required|integer',
+              $request->validate([
+            'expense_id' => 'required|integer',
             'date' => 'required|date',
-            'Note' => 'required|string',
-            'Type' => 'required|string',
-            'Amount' => 'required|numeric',
-            'Account' => 'required|string',
-            'Remarks' => 'nullable|string'
+            'note' => 'required|string',
+            'type' => 'required|string',
+            'amount' => 'required|numeric',
+            'account' => 'required|string',
+            'remarks' => 'nullable|string'
         ]);
     
         Expense::create([
-            'expense_id' => $request->Expense_ID,
+            'expense_id' => $request->expense_id,
             'date' => $request->date,
-            'note' => $request->Note,
-            'type' => $request->Type,
-            'amount' => $request->Amount,
-            'account' => $request->Account,
-            'remarks' => $request->Remarks,
+            'note' => $request->note,
+            'type' => $request->type,
+            'amount' => $request->amount,
+            'account' => $request->account,
+            'remarks' => $request->remarks,
         ]);
     
         return redirect()->route('expense.index')->with('success', 'Expense created successfully.');
@@ -37,13 +37,13 @@ class ExpenseController extends Controller
     
     public function update(Request $request, $id){
         $request->validate([
-            'Expense_ID' => 'required|integer',
+            'expense_id' => 'required|integer',
             'date' => 'required|date',
-            'Note' => 'required|string',
-            'Type' => 'required|string',
-            'Amount' => 'required|numeric',
-            'Account' => 'required|string',
-            'Remarks' => 'nullable|string'
+            'note' => 'required|string',
+            'type' => 'required|string',
+            'amount' => 'required|numeric',
+            'account' => 'required|string',
+            'remarks' => 'nullable|string'
         ]);
     
         $expense = Expense::findOrFail($id);
