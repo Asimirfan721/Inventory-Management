@@ -53,24 +53,86 @@
             <li>Dashboard</li>
             <li>Access</li>
             <a href="{{ route('currency.index') }}" class="btn btn-danger mt-4">Currency Managment</a>
-            <a href="{{ route('company.index') }}" class="btn btn-primary mt-4">Company Management</a>
+            <li class="mt-4">
+    <a data-bs-toggle="collapse" href="#companySubmenu" role="button" aria-expanded="false"aria-controles="companySubmenu" class="btn btn-primary w-100 text-start">
+        Company Management ▾
+    </a>
+    <div class="collapse" id="companySubmenu">
+        <ul class="list-unstyled ps-3 mt-2">
+            <li><a href="{{ route('company.create') }}" class="text-white d-block mb-1">Add Company</a></li>
+            <li><a href="{{ route('company.index') }}" class="text-white d-block mb-1">Browse Company</a></li>
+</ul>
+</div>
+</li> 
             <li class="mt-4">
     <a data-bs-toggle="collapse" href="#productSubmenu" role="button" aria-expanded="false" aria-controls="productSubmenu" class="btn btn-secondary w-100 text-start">
         Product Management ▾
     </a>
     <div class="collapse" id="productSubmenu">
         <ul class="list-unstyled ps-3 mt-2">
-            <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Index</a></li>
+            <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Browse Product</a></li>
             <li><a href="{{ route('product.create') }}" class="text-white d-block mb-1">Add Product</a></li>
-            </ul>
-    </div>
+        </ul>
+        </div>
+    </li>
+    <li class="mt-4">
+        <a data-bs-toggle="collapse" href="#supplierSubmenu" role="button" aria-expanded="false" aria-controls="supplierSubmenu" class="btn btn-danger w-100 text-start">
+        Supplier Management ▾
+        </a>
+        <div class="collapse" id="supplierSubmenu">
+        <ul class="list-unstyled ps-3 mt-2">
+            <li><a href="{{ route('supplier.index') }}" class="text-white d-block mb-1">Browse Supplier</a></li>
+            <li><a href="{{ route('supplier.create') }}" class="text-white d-block mb-1">Add Supplier</a></li>
+        </ul>
+        </div>
+    </li>
+    <li class="mt-4">
+        <a data-bs-toggle="collapse" href="#customerSubmenu" role="button" aria-expanded="false" aria-controls="customerSubmenu" class="btn btn-primary w-100 text-start">
+        Customer Management ▾
+        </a>
+        <div class="collapse" id="customerSubmenu">
+        <ul class="list-unstyled ps-3 mt-2">
+            <li><a href="{{ route('customer.index') }}" class="text-white d-block mb-1">Browse Customer</a></li>
+            <li><a href="{{ route('customer.create') }}" class="text-white d-block mb-1">Add Customer</a></li>
+        </ul>
+        </div>
+    </li>
+    <li class="mt-4">
+        <a data-bs-toggle="collapse" href="#expenseSubmenu" role="button" aria-expanded="false" aria-controls="expenseSubmenu" class="btn btn-secondary w-100 text-start">
+        Expense Management ▾
+        </a>
+        <div class="collapse" id="expenseSubmenu">
+        <ul class="list-unstyled ps-3 mt-2">
+            <li><a href="{{ route('expense.index') }}" class="text-white d-block mb-1">Browse Expense</a></li>
+            <li><a href="{{ route('expense.create') }}" class="text-white d-block mb-1">Add Expense</a></li>
+        </ul>
+        </div>
+    </li>
+    <li class="mt-4">
+        <a data-bs-toggle="collapse" href="#accountSubmenu" role="button" aria-expanded="false" aria-controls="accountSubmenu" class="btn btn-danger w-100 text-start">
+        Account Management ▾
+        </a>
+        <div class="collapse" id="accountSubmenu">
+        <ul class="list-unstyled ps-3 mt-2">
+            <li><a href="{{ route('account.index') }}" class="text-white d-block mb-1">Browse Account</a></li>
+            <li><a href="{{ route('account.create') }}" class="text-white d-block mb-1">Add Account</a></li>
+        </ul>
+        </div>
+    </li>
+    <li class="mt-4">
+        <a data-bs-toggle="collapse" href="#stockSubmenu" role="button" aria-expanded="false" aria-controls="stockSubmenu" class="btn btn-primary w-100 text-start">
+        Stock Management ▾
+        </a>
+        <div class="collapse" id="stockSubmenu">
+        <ul class="list-unstyled ps-3 mt-2">
+            <li><a href="{{ route('stock.index') }}" class="text-white d-block mb-1">Browse Stock</a></li>
+            <li><a href="{{ route('stock.create') }}" class="text-white d-block mb-1">Add Stock</a></li>
+        </ul>
+        </div>
+    </li>
 </li>
 
-            <a href="{{ route('supplier.index') }}" class="btn btn-danger mt-4">Supplier Management</a>
-            <a href="{{ route('customer.index') }}" class="btn btn-primary mt-4">Customer Management</a>
-            <a href="{{ route('expense.index') }}" class="btn btn-secondary mt-4">Expense Management</a>
-            <a href="{{ route('account.index') }}" class="btn btn-danger mt-4">Account Management</a>
-            <a href="{{ route('stock.index') }}" class="btn btn-primary mt-4">Stock Management</a>
+             
              
         </ul>
     </div>

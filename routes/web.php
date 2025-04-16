@@ -52,6 +52,7 @@ Route::get('/customer', [CustomerController::class, 'index'])->name('customer.in
 Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');
 Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customer.update');
 Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+Route::get('/customer/create', [SupplierController::class, 'create'])->name('customer.create');
 
 
 //Expense Management
