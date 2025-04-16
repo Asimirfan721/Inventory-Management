@@ -10,7 +10,11 @@
     <form action="{{ route('account.store') }}" method="POST">
         @csrf
 
-        <div class="form-group">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="form-group">
             <label>Name</label>
             <input type="text" name="name" class="form-control" placeholder ="Enter your Name" required>  
