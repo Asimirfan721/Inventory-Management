@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Company;
+use App\Models\Currency;
 
 class CompanyController extends Controller
 {
@@ -19,12 +20,14 @@ class CompanyController extends Controller
             'logo' => 'required|string',
             'name' => 'required|string|max:255',
             'currency' => 'required|string|max:50',
+            'currency_id' => 'required|exists:currencies,id',
         ]);
 
         $company = Company::create([
             'logo' => $request->logo,
             'name' => $request->name,
             'currency' => $request->currency,
+            'currency_id' => $request->currency_id,
         ]);
 
         // For AJAX response
@@ -65,6 +68,7 @@ class CompanyController extends Controller
 }
 public function create()
 {
-    return view('company.create');
+    $currencies = Currency::all(); // fetch all currencies from DB
+    return view('company.create', compact('currencies'));
 }
 }

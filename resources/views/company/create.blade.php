@@ -19,9 +19,14 @@
                         <input type="text" name="name" class="form-control" placeholder="Company Name" required>
                     </div>
                     <div class="form-group">
-                        <label>Currency</label>
-                        <input type="text" name="currency" class="form-control" placeholder="Company's Currency" required>
-                    </div>
+    <label for="currency_id">Select Currency</label>
+    <select name="currency_id" class="form-control" required>
+        <option value="">-- Select Currency --</option>
+        @foreach($currencies as $currency)
+            <option value="{{ $currency->id }}">{{ $currency->currency }} ({{ $currency->code }})</option>
+        @endforeach
+    </select>
+</div>
 
         <button type="submit" class="btn btn-success mt-2">Add company</button>
     </form>
