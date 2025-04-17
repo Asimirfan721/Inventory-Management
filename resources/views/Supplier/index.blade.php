@@ -11,14 +11,14 @@
     <div class="alert alert-success">{{ session('success') }}</div>
   @endif
 
-  <table class="table table-bordered">
+  <table class="table table-bordered"> 
     <thead>
       <tr>
         <th>No</th>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
-        <th>Address</th>
+        <th>Address</th> 
         <th>Company</th>
         <th>Action</th>
       </tr>

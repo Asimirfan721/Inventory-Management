@@ -17,6 +17,7 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Address</th>
+        <th>Company</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -28,6 +29,7 @@
         <td>{{ $customer->email }}</td>
         <td>{{ $customer->phone }}</td>
         <td>{{ $customer->address }}</td>
+        <td>{{ $customer->company->name ?? 'N/A' }}</td>
         <td>
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $customer->id }}">Edit</button>
           <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $customer->id }}">Delete</button>
@@ -64,6 +66,17 @@
                   <label>Address</label>
                   <input type="text" name="address" class="form-control" value="{{ $customer->address }}" required>
                 </div>
+                <div class="form-group">
+  <label>Company</label>
+  <select name="company_id" class="form-control" required>
+    <option value="">-- Choose Company --</option>
+    @foreach($companies as $company)
+    <option value="{{ $company->id }}" {{ isset($customer) && $customer->company_id == $company->id ? 'selected' : '' }}>
+        {{ $company->name }}
+      </option>
+    @endforeach
+  </select>
+</div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
