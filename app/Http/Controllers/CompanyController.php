@@ -16,14 +16,14 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Logo' => 'required|string',
-            'Name' => 'required|string|max:255',
+            'logo' => 'required|string',
+            'name' => 'required|string|max:255',
             'currency' => 'required|string|max:50',
         ]);
 
         $company = Company::create([
-            'Logo' => $request->Logo,
-            'Name' => $request->Name,
+            'logo' => $request->logo,
+            'name' => $request->name,
             'currency' => $request->currency,
         ]);
 
@@ -38,15 +38,15 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Logo' => 'required|string',
-            'Name' => 'required|string|max:255',
+            'logo' => 'required|string',
+            'name' => 'required|string|max:255',
             'currency' => 'required|string|max:50',
         ]);
 
         $company = Company::findOrFail($id);
         $company->update([
-            'Logo' => $request->Logo,
-            'Name' => $request->Name,
+            'logo' => $request->logo,
+            'name' => $request->name,
             'currency' => $request->currency,
         ]);
 
