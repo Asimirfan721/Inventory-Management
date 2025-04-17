@@ -15,4 +15,8 @@ class Supplier extends Model
         'phone',
         'address',
     ];
+    public function company()
+{
+    return $this->belongsTo(Company::class);
+}
 }
