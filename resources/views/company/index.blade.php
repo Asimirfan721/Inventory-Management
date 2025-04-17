@@ -21,8 +21,8 @@
             @foreach($companies as $index => $company)
             <tr id="row-{{ $company->id }}">
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $company->Logo }}</td>
-                <td>{{ $company->Name }}</td>
+                <td>{{ $company->logo }}</td>
+                <td>{{ $company->name }}</td>
                 <td>{{ $company->currency }}</td>
                 <td>
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $company->id }}">Edit</button>
@@ -49,10 +49,10 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Logo</label>
-                        <input type="text" name="Logo" class="form-control" value="{{ $company->Logo }}" required>
+                        <input type="text" name="logo" class="form-control" value="{{ $company->Logo }}" required>
 
                         <label>Name</label>
-                        <input type="text" name="Name" class="form-control" value="{{ $company->Name }}" required>
+                        <input type="text" name="name" class="form-control" value="{{ $company->Name }}" required>
 
                         <label>Currency</label>
                         <input type="text" name="currency" class="form-control" value="{{ $company->currency }}" required>

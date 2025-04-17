@@ -12,11 +12,11 @@
 
         <div class="form-group">
                         <label>Logo</label>
-                        <input type="text" name="Logo" class="form-control" placeholder="Enter logo details" required>
+                        <input type="text" name="logo" class="form-control" placeholder="Enter logo details" required>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="Name" class="form-control" placeholder="Company Name" required>
+                        <input type="text" name="name" class="form-control" placeholder="Company Name" required>
                     </div>
                     <div class="form-group">
                         <label>Currency</label>
