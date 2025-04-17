@@ -7,7 +7,7 @@
     }
     .sidebar {
         height: 100vh;
-        background-color:rgb(13, 99, 42);
+        background-color:rgb(78, 79, 81);
         color: #fff;
         padding-top: 10px;
         position: fixed;
@@ -19,14 +19,15 @@
     }
     .sidebar ul {
         list-style: none;
-        padding-left: 10;
+        padding-left: 5;
     }
     .sidebar ul li {
-        padding: 10px 10px;
+        padding: 05px 10px;
     }
     .sidebar ul li:hover {
         background-color: #34495e;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
     .main-content {
         margin-left: 240px;
@@ -165,5 +166,8 @@
 <style>
     .sidebar {
         overflow-y: auto;
+    }
+    .sidebar ul li a {
+        margin-left: -10px;
     }
 </style>
