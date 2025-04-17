@@ -6,7 +6,8 @@
   <h4 class="mb-4">Customer Management</h4>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
-  <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addCustomerModal">+ Create Customer</button>
+  <a href="{{ route('customer.create') }}" class="btn btn-primary mb-3">+ Create Customer</a>
+ 
 
   <table class="table table-bordered">
     <thead>
