@@ -14,6 +14,7 @@ class Supplier extends Model
         'email',
         'phone',
         'address',
+        'company_id',
     ];
     public function company()
 {

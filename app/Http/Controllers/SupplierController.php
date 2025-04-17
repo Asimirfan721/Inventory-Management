@@ -10,8 +10,9 @@ class SupplierController extends Controller
 {
     public function index()
     {
-        $suppliers = Supplier::with('company')->get(); // Eager load company
-        return view('supplier.index', compact('suppliers'));
+        $suppliers = Supplier::with('company')->get();
+        $companies = Company::all(); // <-- add this
+        return view('supplier.index', compact('suppliers', 'companies'));
     }
 
     public function create()
