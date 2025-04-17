@@ -12,12 +12,14 @@ class SupplierController extends Controller
     {
         $suppliers = Supplier::with('company')->get();
         $companies = Company::all(); // <-- add this
+        
         return view('supplier.index', compact('suppliers', 'companies'));
     }
 
     public function create()
     {
         $companies = Company::all();
+
         return view('supplier.create', compact('companies'));
     }
 

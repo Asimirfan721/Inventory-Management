@@ -26,11 +26,11 @@
             <input type="text" name="address" class="form-control" placeholder="Enter Supplier Address" required>
         </div>
         <div class="form-group">
-    <label for="company_id" style="color: black;">Select Company</label>
-    <select name="company_id" class="form-control" required style="color: black;">
-        <option value="" style="color: black;">-- Choose Company --</option>
+    <label for="company_id" class="text-black">Select Company</label>
+    <select name="company_id" class="form-control text-black" required>
+        <option value="">-- Choose Company --</option>
         @foreach($companies as $company)
-            <option value="{{ $company->id }}" style="color: black;">{{ $company->name }}</option>
+            <option value="{{ $company->id }}">{{ $company->name }}</option>
         @endforeach
     </select>
 </div>
