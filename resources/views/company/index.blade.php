@@ -2,9 +2,10 @@
 
 @section('content')
 <div class="container">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <head> <link rel="stylesheet" href="{{ asset('css/style.css') }}"></head>
 
-    <h3 class="mb-4">Company Management</h3>
+
+    <h3 class="mb-4">Company Management</h3> 
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
     <a href="{{ route('company.create') }}" class="btn btn-primary mb-3">+ Create Company</a>

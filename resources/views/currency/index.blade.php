@@ -1,25 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-<head><link rel="stylesheet" href="{{ asset('css/style.css') }}"></head>
+<div class="container"> 
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <h3 class="mb-4">Currency Management</h3>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
   <a href="{{ route('currency.create') }}" class="btn btn-primary mb-3">+ Create Currency</a>
   
-  <table class="table table-bordered">
+  <table class="table table-bordered" id="currencyTable">
     <thead>
       <tr>
         <th>No</th>
-        <th>Code</th>
+        <th>Code</th> 
         <th>Currency</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach($currencies as $index => $currency)
-      <tr>
+      <tr id="row-{{ $currency->id }}">
         <td>{{ $index + 1 }}</td>
         <td>{{ $currency->code }}</td>
         <td>{{ $currency->currency }}</td>

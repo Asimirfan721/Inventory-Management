@@ -2,60 +2,12 @@
 
 @section('content')
 <div class="container">
-    <head>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}"></head>
+    <head>    <link rel="stylesheet" href="{{ asset('css/style.css') }}"></head>
   
     <h3 class="mb-4">Stock Management</h3>
 
-    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
+    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
     <a href="{{ route('stock.create') }}" class="btn btn-primary mb-3">+ Create Stock</a>
-<!-- Add Stock Modal -->
-<div class="modal fade" id="addStockModal" tabindex="-1" role="dialog" aria-labelledby="addStockModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form action="{{ route('stocks.store') }}" method="POST">
-            @csrf
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addStockModalLabel">Create Stock</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Purchase Order</label>
-                        <input type="text" name="purchase_order" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input type="date" name="date" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>No of Days</label>
-                        <input type="number" name="no_of_days" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Supplier</label>
-                        <select name="supplier_id" class="form-control" required>
-                            <option value="">Select Supplier</option>
-                            @foreach($suppliers as $supplier)
-                                <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Total</label>
-                        <input type="number" step="0.01" name="total" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
