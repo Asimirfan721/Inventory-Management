@@ -1,5 +1,5 @@
 body {
-    background-color:rgb(85, 153, 221);
+    background-color:rgb(169, 235, 233);
     font-family: 'Times New Roman', sans-serif;
 }
 
@@ -13,8 +13,14 @@ body {
 }
 
 h4 {
-    color: #0c0d0d;
+    color: #71d4d4;
     font-weight: bold;
+}
+h3 {
+    color: #020606;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .btn {

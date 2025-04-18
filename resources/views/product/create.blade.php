@@ -4,7 +4,7 @@
 <div class="container">
     
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <h4 class="mb-4">Add New Product</h4>
+    <h3 class="mb-4">Add New Product</h3>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
     <a href="{{ route('product.index') }}" class="btn btn-primary mb-3">Back to Product Page</a>

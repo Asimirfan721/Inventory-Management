@@ -5,7 +5,7 @@
     
   
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <h4 class="mb-4">Stock Management</h4>
+    <h3 class="mb-4">Stock Management</h3>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
     <a href="{{ route('stock.create') }}" class="btn btn-primary mb-3">+ Create Stock</a>

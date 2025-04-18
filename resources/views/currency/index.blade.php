@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-  <h4 class="mb-4">Currency Management</h4>
+  <h3 class="mb-4">Currency Management</h3>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
   <a href="{{ route('currency.create') }}" class="btn btn-primary mb-3">+ Create Currency</a>
