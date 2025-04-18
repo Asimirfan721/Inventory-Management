@@ -68,7 +68,7 @@ class ProductController extends Controller
     return redirect()->back()->with('success', 'product deleted successfully.');
 }
 public function create()
-{
+{   
     $brands = Brand::all();
    // return view('product.brand', compact('brands')); // adjust view path if needed
     return view('product.create')->with('success', 'Your success message here.');

@@ -37,7 +37,7 @@ class CustomerController extends Controller
             'phone' => 'nullable',
             'address' => 'required',
             'company_id'  => 'required|exists:companies,id',
-        ]);
+        ]);  
 
         $customer = Customer::findOrFail($id);
         $companies = Company::all();
