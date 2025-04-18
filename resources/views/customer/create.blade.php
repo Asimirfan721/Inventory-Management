@@ -9,7 +9,7 @@
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
     <a href="{{ route('customer.index') }}" class="btn btn-primary mb-3">Back to Customer Page</a>
 
-    <form action="{{ route('customer.store') }}" method="POST">
+    <form action="{{ route('customer.store') }}" method="POST"> 
         @csrf
 
         <div class="modal-body">

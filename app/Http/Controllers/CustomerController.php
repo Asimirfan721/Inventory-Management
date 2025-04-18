@@ -11,7 +11,7 @@ class CustomerController extends Controller
     {
         $customers = Customer::all();
         $companies = Company::all();
-        return view('customer.create', compact('companies','customers'));
+        return view('customer.index', compact('companies','customers'));
     }
 
     public function store(Request $request)
