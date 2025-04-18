@@ -19,7 +19,7 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required|string', 
             'email' => 'required|email',
-            'phone' => 'required',
+            'phone' => 'nullable',
             'address' => 'required',
             'company_id'  => 'required|exists:companies,id',
         ]);
@@ -34,7 +34,7 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required|string', 
             'email' => 'required|email',
-            'phone' => 'required',
+            'phone' => 'nullable',
             'address' => 'required',
             'company_id'  => 'required|exists:companies,id',
         ]);

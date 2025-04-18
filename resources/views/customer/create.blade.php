@@ -11,11 +11,11 @@
 
     <form action="{{ route('customer.store') }}" method="POST"> 
         @csrf
-
+ 
         <div class="modal-body">
           <div class="form-group">
             <label>Name</label>
-            <input type="text" name="name" class="form-control" placeholder="Customer Name"required>
+            <input type="text" name="name" class="form-control" placeholder="Customer Name" required>
           </div>
           <div class="form-group">
             <label>Email</label>
@@ -23,7 +23,7 @@
           </div>
           <div class="form-group">
             <label>Phone</label>
-            <input type="text" name="phone" class="form-control" placeholder="Customer Mobile" required>
+            <input type="text" name="phone" class="form-control" placeholder="Customer Mobile">
           </div>
           <div class="form-group">
             <label>Address</label>
