@@ -58,7 +58,7 @@ class ProductController extends Controller
     public function destroy($id)
 {
     // Find the currency by its ID
-    $product = product::findOrFail($id);
+    $product = Product::findOrFail($id);
 
     // Delete the currency
     $product->delete();

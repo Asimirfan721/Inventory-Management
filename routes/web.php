@@ -82,3 +82,11 @@ Route::put('/stocks/{id}', [StockController::class, 'update'])->name('stock.upda
 Route::delete('/stock/{id}', [StockController::class, 'destroy'])->name('stock.destroy');
 
 Route::get('/stock/create', [StockController::class, 'create'])->name('stock.create');
+
+//Brand
+Route::get('/brands', [BrandController::class, 'index'])->name('brand.index');
+Route::post('/brands', [BrandController::class, 'store'])->name('brand.store');
+Route::put('/brands/{id}', [BrandController::class, 'update'])->name('brand.update');
+Route::delete('/brands/{id}', [BrandController::class, 'destroy'])->name('brand.destroy');
+Route::get('/brand/create', [BrandController::class, 'create'])->name('brand.create');
+Route::get('/brand/{id}/edit', [BrandController::class, 'edit'])->name('brand.edit');
