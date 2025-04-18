@@ -46,8 +46,9 @@
                     </a>
                     <div class="collapse" id="productSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
-                            <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Browse Product</a></li>
-                            <li><a href="{{ route('product.create') }}" class="text-white d-block mb-1">Add Product</a></li>
+                        <li><a href="{{ route('product.create') }}" class="text-white d-block mb-1">Add Product</a></li> 
+                        <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Browse Product</a></li>
+                            <li><a href="{{ route('product.brand')}}"class="text-white d-block mb-1">Brand</a></li>
                         </ul>
                     </div>
                 </li>

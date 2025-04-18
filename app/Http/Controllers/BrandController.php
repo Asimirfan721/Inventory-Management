@@ -18,7 +18,7 @@ class BrandController extends Controller
         'summary' => $request->summary,
     ]);
 
-    return redirect()->route('brand.index')->with('success', 'Brand added successfully!');
+    return redirect()->route('product.brand')->with('success', 'Brand added successfully!');
 }
 
 public function update(Request $request, $id)
@@ -34,13 +34,13 @@ public function update(Request $request, $id)
         'summary' => $request->summary,
     ]);
 
-    return redirect()->route('brand.index')->with('success', 'Brand updated successfully!');
+    return redirect()->route('product.brand')->with('success', 'Brand updated successfully!');
 }
 
 public function destroy($id)
 {
     Brand::find($id)->delete();
-    return redirect()->route('brand.index')->with('success', 'Brand deleted successfully!');
+    return redirect()->route('.product.brand')->with('success', 'Brand deleted successfully!');
 }
 
 }

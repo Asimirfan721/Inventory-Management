@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Brand;
 
 class ProductController extends Controller
 {
@@ -68,6 +69,8 @@ class ProductController extends Controller
 }
 public function create()
 {
+    $brands = Brand::all();
+   // return view('product.brand', compact('brands')); // adjust view path if needed
     return view('product.create')->with('success', 'Your success message here.');
 }
 }
