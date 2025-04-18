@@ -1,5 +1,5 @@
 body {
-    background-color:rgb(169, 235, 233);
+    background-color: rgb(250, 243, 243);
     font-family: 'Times New Roman', sans-serif;
 }
 
@@ -16,11 +16,13 @@ h4 {
     color: #71d4d4;
     font-weight: bold;
 }
+
 h3 {
     color: #020606;
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
+    font-family: 'Times New Roman', sans-serif;
 }
 
 .btn {
@@ -60,22 +62,36 @@ h3 {
     background-color: #218838;
     border-color: #1e7e34;
 }
+
+.sidebar {
+    height: 100vh;
+    background-color: rgb(78, 79, 81);
+    color: #fff;
+    padding-top: 10px;
+    position: fixed;
+    width: 240px;
+}
+
 .sidebar h4 {
     text-align: center;
     padding-bottom: 20px;
 }
+
 .sidebar ul {
     list-style: none;
-    padding-left: 5;
+    padding-left: 5px;
 }
+
 .sidebar ul li {
-    padding: 05px 10px;
+    padding: 5px 10px;
 }
+
 .sidebar ul li:hover {
     background-color: #34495e;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .topbar {
     background-color: #ecf0f1;
     padding: 10px 20px;
@@ -84,25 +100,21 @@ h3 {
     align-items: center;
     border-bottom: 1px solid #ccc;
 }
+
 .topbar h5 {
-    margin: 10;
+    margin: 10px;
 }
+
 .main-content {
     margin-left: 240px;
     padding: 40px;
 }
- body {
-        background-color:rgb(250, 247, 247);
-    }
-    .sidebar {
-        height: 100vh;
-        background-color:rgb(78, 79, 81);
-        color: #fff;
-        padding-top: 10px;
-        position: fixed;
-        width: 240px;
-    }
-    .sidebar h4 {
-        text-align: center;
-        padding-bottom: 20px;
-    }
+.form-group label::after {
+    content: '*';
+    color: red;
+    margin-left: 8px;
+    font-size: 1.2em;
+}
+
+
+ 

@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <head><link rel="stylesheet" href="{{ asset('css/style.css') }}"></head>
+
   <h3 class="mb-4">Supplier Management</h3>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>

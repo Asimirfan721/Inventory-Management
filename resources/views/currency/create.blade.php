@@ -45,12 +45,3 @@
         });
     });
 </script>
-
-<style>
-    .form-group label::after {
-        content: '*';
-        color: red;
-        margin-left: 8px;
-        font-size: 1.2em;
-    }
-</style>
