@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+  
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
   <h4 class="mb-4">Expense Management</h4>
 

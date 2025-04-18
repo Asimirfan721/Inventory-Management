@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
   <h4 class="mb-4">Account Management</h4>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Back</a>
@@ -108,46 +110,4 @@
   </table>
 </div>
 
-<!-- Add Account Modal -->
-<div class="modal fade" id="addaccountModal" tabindex="-1" role="dialog" aria-labelledby="addaccountModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <form action="{{ route('account.store') }}" method="POST">
-      @csrf
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addaccountModalLabel">Add Account</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" name="name" class="form-control" placeholder ="Enter your Name" required>  
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="text" name="phone" class="form-control" placeholder ="Enter your Number"required>
-          </div>
-          <div class="form-group">
-  <label>Balance</label>
-  <input type="number" step="0.01" name="balance" class="form-control" placeholder ="Enter your Amount" required>
-</div>
-          <div class="form-group">
-            <label>Description</label>
-            <input type="text" name="description" class="form-control" placeholder ="Enter your Description" required>
-          </div>
-          <div class="form-group">
-            <label>Account Number</label>
-            <input type="text" name="account_number" class="form-control" placeholder ="Enter your Account Number" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save Account</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
 @endsection

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content') 
+
 <div class="container">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <h4 class="mb-4">Add New Currency</h4>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
@@ -23,64 +26,7 @@
         <button type="submit" class="btn btn-success mt-2">Add Currency</button>
     </form>
 </div>
-<style>
-    body {
-        background-color:rgb(27, 120, 213);
-        font-family: 'Times New Roman', sans-serif;
-    }
-
-    .container {
-        background: #ffffff;
-        border-radius: 20px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        padding: 40px;
-        max-width: 900px;
-        margin: 50px auto;
-    }
-
-    h4 {
-        color: #343a40;
-        font-weight: bold;
-    }
-
-    .btn {
-        border-radius: 20px;
-        padding: 10px 20px;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-
-    .form-group label {
-        font-weight: bold;
-        color: #495057;
-    }
-
-    .form-control {
-        border-radius: 20px;
-        padding: 10px;
-        border: 1px solid #ced4da;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
-        border-radius: 20px;
-        padding: 10px 20px;
-    }
-
-    .btn-success:hover {
-        background-color: #218838;
-        border-color: #1e7e34;
-    }
-</style>
+ 
 
 @endsection
 

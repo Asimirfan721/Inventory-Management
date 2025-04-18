@@ -2,51 +2,11 @@
 
 @section('content')
 <style>
-    body {
-        background-color:rgb(246, 241, 241);
-    }
-    .sidebar {
-        height: 100vh;
-        background-color:rgb(78, 79, 81);
-        color: #fff;
-        padding-top: 10px;
-        position: fixed;
-        width: 240px;
-    }
-    .sidebar h4 {
-        text-align: center;
-        padding-bottom: 20px;
-    }
-    .sidebar ul {
-        list-style: none;
-        padding-left: 5;
-    }
-    .sidebar ul li {
-        padding: 05px 10px;
-    }
-    .sidebar ul li:hover {
-        background-color: #34495e;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    .main-content {
-        margin-left: 240px;
-        padding: 40px;
-    }
-    .topbar {
-        background-color: #ecf0f1;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ccc;
-    }
-    .topbar h5 {
-        margin: 10;
-    }
+   
 </style>
 
 <div class="d-flex">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Sidebar -->
     <div class="sidebar">
         <h4>SILVER LIBERTY LLC</h4>
@@ -156,7 +116,7 @@
             <i class="bi bi-person-circle" style="font-size: 24px;"></i>
         </div>
         <div class="p-4 bg-white rounded shadow-sm mt-4">
-            <h4>Welcome Super Admin</h4>
+            <h3>Welcome Super Admin</h3>
         </div>
     </div>
 </div>

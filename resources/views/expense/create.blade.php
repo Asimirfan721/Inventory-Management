@@ -2,10 +2,12 @@
 
 @section('content') 
 <div class="container">
-    <h4 class="mb-4">Add New Currency</h4>
+    
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <h4 class="mb-4">Add New Expense</h4>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
-    <a href="{{ route('expense.index') }}" class="btn btn-primary mb-3">Back to Currency Page</a>
+    <a href="{{ route('expense.index') }}" class="btn btn-primary mb-3">Back to Expense Page</a>
 
     <form action="{{ route('expense.store') }}" method="POST">
         @csrf

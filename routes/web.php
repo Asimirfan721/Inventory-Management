@@ -74,7 +74,11 @@ Route::get('/account/create', [AccountController::class, 'create'])->name('accou
 Route::get('/stockks', [StockController::class, 'index'])->name('stocks.index');
 
 Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
-Route::post('/stocks', [StockController::class, 'store'])->name('stocks.store');
-Route::put('/stocks/{id}', [StockController::class, 'update'])->name('stocks.update');
-Route::delete('/stock/{id}', [StockController::class, 'destroy'])->name('stocks.destroy');
-Route::get('/stock/create', [AccountController::class, 'create'])->name('stock.create');
+Route::post('/stockss', [StockController::class, 'store'])->name('stocks.store');
+Route::put('/stockss/{id}', [StockController::class, 'update'])->name('stocks.update');
+Route::delete('/stocks/{id}', [StockController::class, 'destroy'])->name('stocks.destroy');
+Route::post('/stocks', [StockController::class, 'store'])->name('stock.store');
+Route::put('/stocks/{id}', [StockController::class, 'update'])->name('stock.update');
+Route::delete('/stock/{id}', [StockController::class, 'destroy'])->name('stock.destroy');
+
+Route::get('/stock/create', [StockController::class, 'create'])->name('stock.create');
