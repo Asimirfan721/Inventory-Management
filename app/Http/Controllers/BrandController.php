@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Company;
 
 class BrandController extends Controller
 {
+    public function index()
+    {
+        $brands = Brand::all();
+        return view('product.brand', compact('brands'));
+    }
     public function store(Request $request)
 {
     $request->validate([
@@ -41,6 +48,9 @@ public function destroy($id)
 {
     Brand::find($id)->delete();
     return redirect()->route('.product.brand')->with('success', 'Brand deleted successfully!');
+}
+public function create(){
+    return view('product.brand');
 }
 
 }

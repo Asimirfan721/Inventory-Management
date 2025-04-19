@@ -86,8 +86,9 @@ Route::get('/stock/create', [StockController::class, 'create'])->name('stock.cre
 
 //Brand
 Route::get('/brands', [BrandController::class, 'index'])->name('product.brand');
-// Route::post('/brands', [BrandController::class, 'store'])->name('brand.store');
-// Route::put('/brands/{id}', [BrandController::class, 'update'])->name('brand.update');
-// Route::delete('/brands/{id}', [BrandController::class, 'destroy'])->name('brand.destroy');
-// Route::get('/brand/create', [BrandController::class, 'create'])->name('brand.create');
-// Route::get('/brand/{id}/edit', [BrandController::class, 'edit'])->name('brand.edit');
+Route::post('/brands', [BrandController::class, 'store'])->name('brand.store');
+Route::put('/brands/{id}', [BrandController::class, 'update'])->name('brand.update');
+Route::delete('/brands/{id}', [BrandController::class, 'destroy'])->name('brand.destroy');
+Route::get('/brand/create', [BrandController::class, 'create'])->name('brand.create');
+Route::get('/brand/{id}/edit', [BrandController::class, 'edit'])->name('brand.edit');
+Route::post('/brandss', [BrandController::class, 'index'])->name('brands.index');
