@@ -25,7 +25,7 @@ class ProductController extends Controller
             'product' => 'required|string|max:255', 
             'category' => 'required|string|max:255',
             'brand' => 'required|string|max:255', // brnad shouldn't be string
-            'SKU' => 'required|string|max:255|unique:products,SKU',
+            'SKU' => 'required|string|max:255|unique:products,SKU', // sku
         ]);
 
         Product::create([
