@@ -10,7 +10,7 @@ class ExpenseController extends Controller
     public function index(){
         $expenses = Expense::all();
         
-        return view('expense.index', compact('expenses'));
+        return view('expense.index', compact('expenses')); // compact
     }
     public function store(Request $request){
               $request->validate([
