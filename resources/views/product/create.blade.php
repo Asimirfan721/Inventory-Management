@@ -42,7 +42,7 @@
                 </div>
           </div>
         
-        <button type="submit" class="btn btn-success mt-2">Add Currency</button>
+        <button type="submit" class="btn btn-success mt-2">Add Product</button>
     </form>
 </div>
 @endsection

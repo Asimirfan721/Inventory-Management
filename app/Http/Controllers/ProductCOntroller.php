@@ -11,10 +11,10 @@ class ProductController extends Controller
     // Show all products
     public function index()
     {
-        
+        $products = Product::all();
         $products = Product::with('brand')->get();
         $brands = Brand::all(); // 👈 Fetch all brands
-        return view('product.index', compact('products','brands')); // adjust view path if needed
+        return view('product.index', compact('products', 'brands')); // adjust view path if needed
     }
 
     // Store a new product
@@ -22,9 +22,9 @@ class ProductController extends Controller
     {
 
         $request->validate([
-            'product' => 'required|string|max:255',
+            'product' => 'required|string|max:255', 
             'category' => 'required|string|max:255',
-            'brand' => 'required|string|max:255',
+            'brand' => 'required|string|max:255', // brnad shouldn't be string
             'SKU' => 'required|string|max:255|unique:products,SKU',
         ]);
 
