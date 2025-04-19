@@ -11,8 +11,10 @@ class ProductController extends Controller
     // Show all products
     public function index()
     {
-        $products = Product::all();
-        return view('product.index', compact('products')); // adjust view path if needed
+        
+        $products = Product::with('brand')->get();
+        $brands = Brand::all(); // 👈 Fetch all brands
+        return view('product.index', compact('products','brands')); // adjust view path if needed
     }
 
     // Store a new product

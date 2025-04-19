@@ -26,7 +26,7 @@
   <td>{{ $index + 1 }}</td>
   <td>{{ $product->product }}</td>
   <td>{{ $product->category }}</td>
-  <td>{{ $product->brand }}</td>
+  <td>{{ $product->brand->name ?? 'N/A' }}</td>
   <td>{{ $product->SKU }}</td>
   <td>
     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $product->id }}">Edit</button>
@@ -60,10 +60,13 @@
   <option value="Shoes" {{ $product->category == 'Shoes' ? 'selected' : '' }}>Shoes</option>
   <option value="Watches" {{ $product->category == 'Watches' ? 'selected' : '' }}>Watches</option>
 </select>   </div>
-              <div class="form-group">
-                <label>Brand</label>
-                <input type="text" name="brand" class="form-control" value="{{ $product->brand }}" required>
-              </div>
+<select name="brand" class="form-control" required>
+  @foreach($brands as $brand)
+    <option value="{{ $brand->id }}" {{ $product->brand == $brand->id ? 'selected' : '' }}>
+        {{ $brand->name }}
+    </option>
+  @endforeach
+</select>
               <div class="form-group">
                 <label>SKU</label>
                 <input type="text" name="SKU" class="form-control" value="{{ $product->SKU }}" required>
