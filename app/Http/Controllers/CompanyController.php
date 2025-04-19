@@ -19,7 +19,7 @@ class CompanyController extends Controller
         $request->validate([
             'logo' => 'required|string',
             'name' => 'required|string|max:255',
-            'currency_id' => 'required|exists:currencies,id',
+            'currency_id' => 'required|exists:currencies,id', //currency_id should be an integer
         ]);
 
         $company = Company::create([
