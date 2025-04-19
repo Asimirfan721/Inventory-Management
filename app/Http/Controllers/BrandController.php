@@ -15,7 +15,7 @@ class BrandController extends Controller
     }
     public function store(Request $request)
 {
-    $request->validate([
+    $request->validate([ 
         'title' => 'required|string|max:255',
         'summary' => 'required|string|max:255',
     ]);
@@ -49,8 +49,12 @@ public function destroy($id)
     Brand::find($id)->delete();
     return redirect()->route('.product.brand')->with('success', 'Brand deleted successfully!');
 }
-public function create(){
-    return view('product.brand');
-}
+public function create()
+{
+    $brands = Brand::all();
+    $currencies = Currency::all(); // if using
+    $companies = Company::all();   // if using
 
+    return view('product.create', compact('brands', 'currencies', 'companies'));
+}
 }

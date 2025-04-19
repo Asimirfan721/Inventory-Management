@@ -20,7 +20,7 @@
                         <label>Name</label>
                         <input type="text" name="name" class="form-control" placeholder="Company Name" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"> 
     <label for="currency_id">Select Currency</label>
     <select name="currency_id" class="form-control" required>
         <option value="">-- Select Currency --</option>

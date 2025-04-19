@@ -23,13 +23,18 @@
     <option value="" disabled selected>Select Category</option>
     <option value="Electronics">Electronics</option>
     <option value="Accessories">Accessories</option>
-    <option value="Clothes">Clothes</option>
+    <option value="Clothes">Clothes</option> 
     <option value="Shoes">Shoes</option>
     <option value="Watches">Watches</option>
   </select>
                 <div class="form-group">
-                    <label>Brand</label>
-                    <input type="text" name="brand" class="form-control"placeholder="Enter Brand Name" required>
+                    <label for="brand">Select Brand</label>
+                    <select name="brand" class="form-control" style="color: black;" required>
+                        <option value="">-- Select Brand --</option>
+                        @foreach($brands as $brand)
+                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                        @endforeach
+                        </select>
                 </div>
                 <div class="form-group">
                     <label>SKU</label>
