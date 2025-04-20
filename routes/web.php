@@ -92,3 +92,10 @@ Route::delete('/brands/{id}', [BrandController::class, 'destroy'])->name('brand.
 Route::get('/brand/create', [BrandController::class, 'create'])->name('brand.create');
 Route::get('/brand/{id}/edit', [BrandController::class, 'edit'])->name('brand.edit');
 Route::post('/brandss', [BrandController::class, 'index'])->name('brands.index');
+
+
+//category  
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
