@@ -47,7 +47,7 @@ public function update(Request $request, $id)
 public function destroy($id)
 {
     Brand::find($id)->delete();
-    return redirect()->route('.product.brand')->with('success', 'Brand deleted successfully!');
+    return redirect()->route('product.brand')->with('success', 'Brand deleted successfully!');
 }
 public function create()
 {

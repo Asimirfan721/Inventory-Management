@@ -32,7 +32,7 @@
                     <select name="brand" class="form-control" style="color: black;" required>
                         <option value="">-- Select Brand --</option>
                         @foreach($brands as $brand)
-                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                        <option value="{{ $brand->id }}">{{ $brand->title }}</option>
                         @endforeach
                         </select>
                 </div>

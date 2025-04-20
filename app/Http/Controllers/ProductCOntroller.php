@@ -24,14 +24,15 @@ class ProductController extends Controller
         $request->validate([
             'product' => 'required|string|max:255', 
             'category' => 'required|string|max:255',
-            'brand' => 'required|string|max:255', // brnad shouldn't be string
+             'brand' => 'required|exists:brands,id', // brand should be an integer
             'SKU' => 'required|string|max:255|unique:products,SKU', // sku
         ]);
 
         Product::create([
             'product' => $request->product,
             'category' => $request->category,
-            'brand' => $request->brand,
+            'brand' => $request->brand, // 👈 assuming your column is named brand
+            // 'brand' => $request->brand, // if you want to store brand name instead of id
             'SKU' => $request->SKU,
         ]);
 
