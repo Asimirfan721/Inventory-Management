@@ -49,6 +49,8 @@
                         <li><a href="{{ route('product.create') }}" class="text-white d-block mb-1">Add Product</a></li> 
                         <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Browse Product</a></li>
                             <li><a href="{{ route('product.brand')}}"class="text-white d-block mb-1">Brand</a></li>
+                            <li><a href="{{ route('product.category')}}"class="text-white d-block mb-1">Category</a></li>
+                        
                         </ul>
                     </div>
                 </li>
