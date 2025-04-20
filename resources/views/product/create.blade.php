@@ -20,13 +20,12 @@
                 <div class="form-group">
                     <label>Category</label>
                     <select name="category" class="form-control" required>
-    <option value="" disabled selected>Select Category</option>
-    <option value="Electronics">Electronics</option>
-    <option value="Accessories">Accessories</option>
-    <option value="Clothes">Clothes</option> 
-    <option value="Shoes">Shoes</option>
-    <option value="Watches">Watches</option>
-  </select>
+    <option value="">-- Select Category --</option>
+    @foreach($categories as $cat)
+        <option value="{{ $cat->title }}">{{ $cat->title }}</option>
+    @endforeach
+</select>
+
                 <div class="form-group">
                     <label for="brand">Select Brand</label>
                     <select name="brand" class="form-control" style="color: black;" required>
