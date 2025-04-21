@@ -21,7 +21,7 @@
       <tr>
         <td>{{ $index + 1 }}</td>
         <td>{{ $category->title }}</td>
-        <td>{{ $category->summary }}</td>
+        <td>{{ $category->slug }}</td>
         <td>
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $category->id }}">Edit</button>
           <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $category->id }}">Delete</button>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                   <label>Summary</label>
-                  <input type="text" name="summary" value="{{ $category->summary }}" class="form-control" required>
+                  <input type="text" name="slug" value="{{ $category->slug }}" class="form-control" required>
                 </div>
               </div>
               <div class="modal-footer">
@@ -89,7 +89,7 @@
           </div>
           <div class="form-group">
             <label>Summary</label>
-            <input type="text" name="summary" class="form-control" required>
+            <input type="text" name="slug" class="form-control" required>
           </div>
         </div>
         <div class="modal-footer">

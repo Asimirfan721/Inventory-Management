@@ -10,6 +10,7 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('home');
 });
@@ -95,7 +96,8 @@ Route::post('/brandss', [BrandController::class, 'index'])->name('brands.index')
 
 
 //category  
-Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/categories', [CategoryController::class, 'index'])->name('product.category');
 Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+Route::get('/category/create', [CategoryController::class, 'index'])->name('category.index');
