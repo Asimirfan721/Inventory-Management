@@ -28,9 +28,13 @@
             </div>
 
             <div class="form-group">
-                <label>Type</label>
-                <input type="text" name="type" class="form-control" placeholder="cash In/Out" required>
-            </div>
+    <label>Type</label>
+    <select name="type" class="form-control" required>
+        <option value="">-- Select Type --</option>
+        <option value="In">In</option>
+        <option value="Out">Out</option>
+    </select>
+</div>
 
             <div class="form-group">
                 <label>Amount</label>
