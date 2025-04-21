@@ -16,7 +16,7 @@ class ProductController extends Controller
         $brands = Brand::all(); // 👈 Fetch all brands
         $categories = Category::all(); // ⬅️ Add this line
 
-        return view('product.index', compact('products', 'brands')); // adjust view path if needed
+        return view('product.index', compact('products', 'brands', 'categories')); // adjust view path if needed
     }
 
     // Store a new product
@@ -37,7 +37,7 @@ class ProductController extends Controller
             // 'brand' => $request->brand, // if you want to store brand name instead of id
             'SKU' => $request->SKU,
         ]);
-
+        //return redirect()->route('product.index')->with('success', 'Product added successfully!');
         return redirect()->back()->with('success', 'Product added successfully!');
     }
 
