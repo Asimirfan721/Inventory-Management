@@ -7,10 +7,24 @@ use App\Models\Expense;
 
 class ExpenseController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $expenses = Expense::all();
-        
-        return view('expense.index', compact('expenses')); // compact
+        $query = Expense::query();if ($request->filled('search')) {
+            $query->where(function($q) use ($request) {
+                $q->where('note', 'like', '%' . $request->search . '%')
+                  ->orWhere('remarks', 'like', '%' . $request->search . '%')
+                  ->orWhere('account', 'like', '%' . $request->search . '%');
+            });
+        }
+    
+        // Apply type filter
+        if ($request->filled('type')) {
+            $query->where('type', $request->type);
+        }
+    
+        $expenses = $query->get();
+    
+        return view('expense.index', compact('expenses'));
     }
     public function store(Request $request){
               $request->validate([

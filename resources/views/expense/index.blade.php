@@ -9,6 +9,17 @@
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
     <a href="{{ route('expense.create') }}" class="btn btn-primary mb-3">+ Create Expense</a>
+    <form method="GET" action="{{ route('expense.index') }}" class="form-inline mb-3">
+    <input type="text" name="search" class="form-control mr-2" placeholder="Search..." value="{{ request('search') }}">
+
+    <select name="type" class="form-control mr-2">
+        <option value="">-- All Types --</option>
+        <option value="In" {{ request('type') == 'In' ? 'selected' : '' }}>In</option>
+        <option value="Out" {{ request('type') == 'Out' ? 'selected' : '' }}>Out</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
 
   <table class="table table-bordered">
     <thead>
@@ -16,8 +27,8 @@
         <th>No</th>
         <th>Expense_ID</th>
         <th>Date</th>
-        <th>Expense Type</th>
-        <th>IN/OuT</th>
+        <th>Expense Description</th>
+        <th>Type</th>
         <th>Amount</th>
         <th>Account</th>
         <th>Remarks</th>
