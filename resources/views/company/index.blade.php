@@ -21,13 +21,19 @@
             </tr>
         </thead>
         <tbody>
+            
             @foreach($companies as $index => $company)
             <tr id="row-{{ $company->id }}">
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $company->logo }}</td>
                 <td>{{ $company->name }}</td>
-                <td>{{ $company->currency->code ?? 'N/A' }}</td>
-
+                <td>
+                @foreach($currencies as $currency)
+                    @if($currency->id == $company->currency_id)
+                        {{ $currency->code }}
+                    @endif
+                @endforeach
+            </td>
 
                 <td>
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $company->id }}">Edit</button>
