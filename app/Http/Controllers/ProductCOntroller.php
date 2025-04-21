@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Brand;
-
+use App\Models\Category;
 class ProductController extends Controller
 {
     // Show all products
@@ -14,6 +14,8 @@ class ProductController extends Controller
         $products = Product::all();
         $products = Product::with('brand')->get();
         $brands = Brand::all(); // 👈 Fetch all brands
+        $categories = Category::all(); // ⬅️ Add this line
+
         return view('product.index', compact('products', 'brands')); // adjust view path if needed
     }
 
@@ -74,7 +76,9 @@ class ProductController extends Controller
 public function create()
 {
     $brands = Brand::all();
+    $categories = Category::all(); // ⬅️ Add this line
+
    
-    return view('product.create', compact('brands', ));
+    return view('product.create', compact('brands', 'categories' ));
 }
 }
