@@ -26,7 +26,7 @@
   <td>{{ $index + 1 }}</td>
   <td>{{ $product->product }}</td>
   <td>{{ $product->category }}</td>
-  <td>{{ $product->brand->name ?? 'N/A' }}</td>
+  <td>{{ $product->brand->title ?? 'N/A' }}</td>
   <td>{{ $product->SKU }}</td>
   <td>
     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $product->id }}">Edit</button>
@@ -63,7 +63,7 @@
 <select name="brand" class="form-control" required>
   @foreach($brands as $brand)
     <option value="{{ $brand->id }}" {{ $product->brand == $brand->id ? 'selected' : '' }}>
-        {{ $brand->name }}
+        {{ $brand->title }}
     </option>
   @endforeach
 </select>
@@ -98,13 +98,13 @@
             </button>
           </div>
           <div class="modal-body">
-                <div class="form-group">
-                    <label>Product</label>
-                    <input type="text" name="product" class="form-control" placeholder="Product Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Category</label>
-                    <select name="category" class="form-control" required>
+            <div class="form-group">
+              <label>Product</label>
+              <input type="text" name="product" class="form-control" placeholder="Product Name" required>
+            </div>
+            <div class="form-group">
+  <label>Category</label>
+  <select name="category" class="form-control" required>
     <option value="" disabled selected>Select Category</option>
     <option value="Electronics">Electronics</option>
     <option value="Accessories">Accessories</option>
@@ -112,15 +112,23 @@
     <option value="Shoes">Shoes</option>
     <option value="Watches">Watches</option>
   </select>
-                <div class="form-group">
-                    <label>Brand</label>
-                    <input type="text" name="brand" class="form-control"placeholder="Enter Brand Name" required>
-                </div>
-                <div class="form-group">
-                    <label>SKU</label>
-                    <input type="text" name="SKU" class="form-control" placeholder="Total Number of Units"required>
-                </div>
-          </div>
+</div>
+
+<div class="form-group">
+  <label>Brand</label>
+  <select name="brand" class="form-control" required>
+    <option value="" disabled selected>Select Brand</option>
+    @foreach($brands as $brand)
+      <option value="{{ $brand->id }}">{{ $brand->title }}</option>
+    @endforeach
+  </select>
+</div>
+
+<div class="form-group">
+  <label>SKU</label>
+  <input type="text" name="SKU" class="form-control" placeholder="Total Number of Units" required>
+</div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save Changes</button>
