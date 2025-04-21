@@ -26,7 +26,9 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $company->logo }}</td>
                 <td>{{ $company->name }}</td>
-                <td>{{ $company->currency }}</td>
+                <td>{{ $company->currency->code ?? 'N/A' }}</td>
+
+
                 <td>
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $company->id }}">Edit</button>
                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $company->id }}">Delete</button>
@@ -58,7 +60,14 @@
                         <input type="text" name="name" class="form-control" value="{{ $company->name }}" required>
 
                         <label>Currency</label>
-                        <input type="text" name="currency" class="form-control" value="{{ $company->currency }}" required>
+                        <select name="currency_id" class="form-control" required>
+    @foreach($currencies as $currency)
+        <option value="{{ $currency->id }}" {{ $company->currency_id == $currency->id ? 'selected' : '' }}>
+            {{ $currency->currency }} ({{ $currency->code }})
+        </option>
+    @endforeach
+</select>
+
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -10,8 +10,9 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies = Company::all();
-        return view('company.index', compact('companies'));
+        $companies = Company::with('currency')->get(); // eager load currency
+        $currencies = Currency::all();
+        return view('company.index', compact('companies', 'currencies'));
     }
 
     public function store(Request $request)
@@ -28,7 +29,7 @@ class CompanyController extends Controller
             'currency_id' => $request->currency_id,
         ]);
 
-       Company::create($request->all());
+       
 
         return redirect()->route('company.index')->with('success', 'Company added successfully!');
     }

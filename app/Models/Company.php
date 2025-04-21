@@ -11,5 +11,10 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['logo', 'name', 'currency'];
+    protected $fillable = ['logo', 'name', 'currency_id'];
+
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class);
+    }
 }
