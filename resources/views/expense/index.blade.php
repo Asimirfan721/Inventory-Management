@@ -19,6 +19,7 @@
     </select>
 
     <button type="submit" class="btn btn-primary">Filter</button>
+    <a href="{{ route('expense.index') }}" class="btn btn-secondary">Clear All</a>
 </form>
 
   <table class="table table-bordered">
