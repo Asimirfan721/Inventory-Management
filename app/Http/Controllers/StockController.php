@@ -45,7 +45,7 @@ class StockController extends Controller
     // Update the specified stock in storage
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $request->validate([ // validation rules
             'purchase_order' => 'required|string|max:255',
             'date'           => 'required|date',
             'no_of_days'     => 'required|integer',
