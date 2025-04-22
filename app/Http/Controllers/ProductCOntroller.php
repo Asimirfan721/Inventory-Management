@@ -56,7 +56,7 @@ class ProductController extends Controller
         'product' => $request->product,
         'category' => $request->category,
         'brand' => $request->brand,
-        'SKU' => $request->SKU,
+        'SKU' => $request->SKU, // sku is a number
     ]);
 
     return redirect()->back()->with('success', 'Product updated successfully!');
