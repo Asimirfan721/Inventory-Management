@@ -10,6 +10,7 @@ class Product extends Model
 
     public function brand()
     {
-        return $this->belongsTo(Brand::class, 'brand', 'id');
+        return $this->belongsTo(Brand::class); // Laravel will look for brand_id automatically
     }
+    
 }

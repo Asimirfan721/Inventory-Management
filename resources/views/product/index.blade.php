@@ -65,9 +65,9 @@
 
 <select name="brand" class="form-control" required>
   @foreach($brands as $brand)
-    <option value="{{ $brand->id }}" {{ $product->brand == $brand->id ? 'selected' : '' }}>
-        {{ $brand->title }}
-    </option>
+  <option value="{{ $brand->id }}" {{ isset($product->brand) && $product->brand->id == $brand->id ? 'selected' : '' }}>
+    {{ $brand->title }}
+</option>
   @endforeach
 </select>
               <div class="form-group">
