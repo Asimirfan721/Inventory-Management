@@ -11,7 +11,7 @@ class CustomerController extends Controller
     {
         $customers = Customer::all();
         $companies = Company::all();
-        return view('customer.index', compact('companies','customers')); // compact
+        return view('customer.index', compact('companies','customers')); // compact currencies and companies
     }
 
     public function store(Request $request)
