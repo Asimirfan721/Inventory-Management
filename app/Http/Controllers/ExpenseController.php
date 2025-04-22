@@ -82,6 +82,6 @@ class ExpenseController extends Controller
         return redirect()->route('expense.index')->with('success', 'Expense deleted successfully.');
     }
     public function create(){
-        return view('expense.create');
+        return view('expense.create'); // redirect to create view
     }
 }
