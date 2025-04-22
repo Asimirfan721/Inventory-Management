@@ -6,9 +6,20 @@ use App\Models\Currency;
 
 class CurrencyController extends Controller
 {
-   public function index()
+   public function index(Request $request)
 {
     $currencies = Currency::all();
+    $query = Currency::query();
+    if ($request->filled('search')) {
+        $search = trim($request->search);
+        $query->where(function($q) use ($search) {
+            $q->where('currency', 'like', "%{$search}%")
+              ->orWhere('code', 'like', "%{$search}%");
+        });
+    }
+
+    $currencies = $query->get();
+
     return view('currency.index', compact('currencies'));
 }
 public function create()

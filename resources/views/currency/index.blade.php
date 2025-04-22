@@ -7,7 +7,12 @@
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
   <a href="{{ route('currency.create') }}" class="btn btn-primary mb-3">+ Create Currency</a>
-  
+  <form action="{{ route('currency.index') }}" method="GET" class="form-inline mb-3">
+  <input type="text" name="search" class="form-control mr-2" placeholder="Search currency or code" value="{{ request('search') }}">
+  <button type="submit" class="btn btn-outline-primary">Search</button>
+  <a href="{{ route('currency.index') }}" class="btn btn-secondary">Clear All</a>
+</form>
+
   <table class="table table-bordered" id="currencyTable">
     <thead>
       <tr>
