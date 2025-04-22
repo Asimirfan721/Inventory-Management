@@ -52,14 +52,17 @@
                 <input type="text" name="product" class="form-control" value="{{ $product->product}}" required>
               </div>
               <div class="form-group">
-                <label>Category</label>
-                <select name="category" class="form-control" required>
-  <option value="Electronics" {{ $product->category == 'Electronics' ? 'selected' : '' }}>Electronics</option>
-  <option value="Accessories" {{ $product->category == 'Accessories' ? 'selected' : '' }}>Accessories</option>
-  <option value="Clothes" {{ $product->category == 'Clothes' ? 'selected' : '' }}>Clothes</option>
-  <option value="Shoes" {{ $product->category == 'Shoes' ? 'selected' : '' }}>Shoes</option>
-  <option value="Watches" {{ $product->category == 'Watches' ? 'selected' : '' }}>Watches</option>
-</select>   </div>
+    <label>Category</label>
+    <select name="category" class="form-control" required>
+        <option value="">-- Select Category --</option>
+        @foreach($categories as $cat)
+            <option value="{{ $cat->title }}" {{ $product->category == $cat->title ? 'selected' : '' }}>
+                {{ $cat->title }}
+            </option>
+        @endforeach
+    </select>
+</div>
+
 <select name="brand" class="form-control" required>
   @foreach($brands as $brand)
     <option value="{{ $brand->id }}" {{ $product->brand == $brand->id ? 'selected' : '' }}>
