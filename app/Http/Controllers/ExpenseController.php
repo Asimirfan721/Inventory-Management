@@ -48,7 +48,7 @@ class ExpenseController extends Controller
             'remarks' => $request->remarks,
         ]);
     
-        return redirect()->route('expense.index')->with('success', 'Expense created successfully.');
+        return redirect()->route('expense.index')->with('success', 'Expense created successfully.'); // redirect to index
     }
     
     public function update(Request $request, $id){
