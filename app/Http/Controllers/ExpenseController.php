@@ -7,25 +7,26 @@ use App\Models\Expense;
 
 class ExpenseController extends Controller
 {
-    public function index(Request $request){
-        $expenses = Expense::all();
-        $query = Expense::query();if ($request->filled('search')) {
-            $query->where(function($q) use ($request) {
-                $q->where('note', 'like', '%' . $request->search . '%')
-                  ->orWhere('remarks', 'like', '%' . $request->search . '%')
-                  ->orWhere('account', 'like', '%' . $request->search . '%');
-            });
-        }
-    
-        // Apply type filter
-        if ($request->filled('type')) {
-            $query->where('type', $request->type);
-        }
-    
-        $expenses = $query->get();
-    
-        return view('expense.index', compact('expenses'));
+    public function index(Request $request)
+{
+    $query = Expense::query();
+
+    // Partial match on expense_id
+    if ($request->filled('search')) {
+        $search = trim($request->search);
+        $query->whereRaw('CAST(expense_id AS CHAR) LIKE ?', ["%{$search}%"]);
     }
+
+    // Filter by type if provided
+    if ($request->filled('type')) {
+        $query->where('type', $request->type);
+    }
+
+    $expenses = $query->get();
+
+    return view('expense.index', compact('expenses'));
+}
+
     public function store(Request $request){
               $request->validate([
             'expense_id' => 'required|integer',

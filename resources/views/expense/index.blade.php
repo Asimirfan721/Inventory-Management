@@ -10,7 +10,8 @@
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
     <a href="{{ route('expense.create') }}" class="btn btn-primary mb-3">+ Create Expense</a>
     <form method="GET" action="{{ route('expense.index') }}" class="form-inline mb-3">
-    <input type="text" name="search" class="form-control mr-2" placeholder="Search..." value="{{ request('search') }}">
+    <input type="text" name="search" class="form-control mr-2" placeholder="Search Expense ID" value="{{ request('search') }}">
+
 
     <select name="type" class="form-control mr-2">
         <option value="">-- All Types --</option>
