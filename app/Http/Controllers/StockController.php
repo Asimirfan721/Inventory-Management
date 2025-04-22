@@ -71,7 +71,7 @@ class StockController extends Controller
     // Remove the specified stock from storage
     public function destroy($id)
     {
-        $stock = Stock::findOrFail($id);
+        $stock = Stock::findOrFail($id); // stock id
         $stock->delete();
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry deleted successfully.');
