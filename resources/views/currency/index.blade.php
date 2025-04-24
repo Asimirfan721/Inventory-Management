@@ -17,7 +17,7 @@
     <thead>
       <tr>
         <th>No</th>
-        <th>Code</th> 
+        <th>Code</th>    
         <th>Currency</th>
         <th>Action</th>
       </tr>

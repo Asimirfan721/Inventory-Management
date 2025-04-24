@@ -102,10 +102,10 @@
         {{ $acc->account_title }} ({{ $acc->account_number }})
       </option>
     @endforeach
-  </select>
+  </select>   
 </div>
 
-
+    
                 <div class="form-group">
                   <label>Remarks</label>
                   <input type="text" name="remarks" class="form-control" value="{{ $expense->remarks }}">
