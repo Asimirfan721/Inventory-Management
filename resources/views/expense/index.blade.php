@@ -52,7 +52,7 @@
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $expense->id }}">Edit</button>
           <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal{{ $expense->id }}">Delete</button>
         </td>
-      </tr>
+      </tr>  
 
       <!-- Edit Modal -->
       <div class="modal fade" id="editModal{{ $expense->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $expense->id }}" aria-hidden="true">
@@ -93,11 +93,18 @@
                   <label>Amount</label>
                   <input type="number" step="0.01" name="amount" class="form-control" value="{{ $expense->amount }}" required>
                 </div>
-
                 <div class="form-group">
-                  <label>Account</label>
-                  <input type="text" name="account" class="form-control" value="{{ $expense->account }}" required>
-                </div>
+  <label>Account</label>
+  <select name="account" class="form-control" required>
+    <option value="">Select Account</option>
+    @foreach($accounts as $acc)
+      <option value="{{ $acc->account_number }}" {{ $expense->account == $acc->account_number ? 'selected' : '' }}>
+        {{ $acc->account_title }} ({{ $acc->account_number }})
+      </option>
+    @endforeach
+  </select>
+</div>
+
 
                 <div class="form-group">
                   <label>Remarks</label>

@@ -40,7 +40,7 @@
                 <label>Amount</label>
                 <input type="number" step="0.01" name="amount" class="form-control" placeholder="Enter Balance" required>
             </div>
-
+   
             <div class="form-group">
     <label>Account</label>
     <select name="account" class="form-control" required>
