@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Expense;
+use App\Models\Account;
 
 class ExpenseController extends Controller
 {
@@ -81,7 +82,10 @@ class ExpenseController extends Controller
 
         return redirect()->route('expense.index')->with('success', 'Expense deleted successfully.');
     }
-    public function create(){
-        return view('expense.create'); // redirect to create view
+    public function create()
+    {
+        $accounts = Account::all(); // or filter for bank accounts only if needed
+    
+        return view('expense.create', compact('accounts'));
     }
 }
