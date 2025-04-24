@@ -24,8 +24,10 @@ class ExpenseController extends Controller
     }
 
     $expenses = $query->get();
+    $accounts = Account::all(); // Add this line
 
-    return view('expense.index', compact('expenses'));
+
+    return view('expense.index', compact('expenses', 'accounts'));
 }
 
     public function store(Request $request){

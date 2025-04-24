@@ -11,4 +11,5 @@ class Expense extends Model
         'expense_id', 'date', 'note', 'type', 'amount', 'account', 'remarks'
     ];
     
+    
 }
