@@ -42,9 +42,15 @@
             </div>
 
             <div class="form-group">
-                <label>Account</label>
-                <input type="text" name="account" class="form-control" placeholder="Enter account Number" required>
-            </div>
+    <label>Account</label>
+    <select name="account" class="form-control" required>
+        <option value="">Select Account</option>
+        @foreach($accounts as $account)
+            <option value="{{ $account->account_number }}">{{ $account->account_title }} ({{ $account->account_number }})</option>
+        @endforeach
+    </select>
+</div>
+
 
             <div class="form-group">
                 <label>Remarks</label>
