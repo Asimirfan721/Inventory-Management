@@ -11,17 +11,19 @@
         <div class="accordion" id="sidebarAccordion">
             <ul class="list-unstyled">
                 <li>Dashboard</li>
-                <li>Access</li>
+                <li> Access</li>
+                    
+
                 
                 <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#currencySubmenu" role="button" aria-expanded="false"
-                       aria-controls="currencySubmenu" class="btn btn-secondary w-100 text-start btn-sm">
-                        Currency Management ▾
+                       aria-controls="accessSubmenu" class="btn btn-secondary w-100 text-start btn-sm">
+                        Access ▾
                     </a>
-                    <div class="collapse" id="currencySubmenu" data-bs-parent="#sidebarAccordion">
+                    <div class="collapse" id="accessSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
-                            <li><a href="{{ route('currency.create') }}" class="text-white d-block mb-1">Add Currency</a></li>
-                            <li><a href="{{ route('currency.index') }}" class="text-white d-block mb-1">Browse Currency</a></li>
+                            <li><a href="{{ route('access.create') }}" class="text-white d-block mb-1">User Management</a></li>
+                            <li><a href="{{ route('access.index') }}" class="text-white d-block mb-1">Role Management</a></li>
                         </ul>
                     </div>
                 </li>
