@@ -33,4 +33,27 @@ class UserController extends Controller
 
         return redirect()->route('access.user.store')->with('success', 'User created successfully!');
     }
+    public function update(Request $request, $id)
+{
+    $user = User::findOrFail($id);
+
+    $data = $request->only(['name', 'email', 'phone', 'role', 'status']);
+
+    if ($request->filled('password')) {
+        $data['password'] = bcrypt($request->password);
+    }
+
+    $user->update($data);
+
+    return redirect()->route('access.user.index')->with('success', 'User updated successfully!');
+}
+
+public function destroy($id)
+{
+    $user = User::findOrFail($id);
+    $user->delete();
+
+    return redirect()->route('access.user.index')->with('success', 'User deleted successfully!');
+}
+
 }
