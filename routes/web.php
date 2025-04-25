@@ -11,18 +11,15 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('home');
 });
 
 
 //Access
-Route::get('/user', [AccessController::class, 'index'])->name('access.user.index');
-Route::post('/currencies', [CurrencyController::class, 'store'])->name('currency.store');
-Route::put('/currencies/{id}/update', [CurrencyController::class, 'update'])->name('currency.update');
-Route::delete('/currency/{id}', [CurrencyController::class, 'destroy'])->name('currency.destroy');
-Route::get('/currency/create', [CurrencyController::class, 'create'])->name('currency.create');
-
+Route::get('/users', [UserController::class, 'index'])->name('access.user.index');
+Route::post('/users', [UserController::class, 'store'])->name('access.user.store');
 
 // currency
 Route::get('/currencies', [CurrencyController::class, 'index'])->name('currency.index');

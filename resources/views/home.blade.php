@@ -16,14 +16,13 @@
 
                 
                 <li class="mt-3">
-                    <a data-bs-toggle="collapse" href="#currencySubmenu" role="button" aria-expanded="false"
+                    <a data-bs-toggle="collapse" href="#accessSubmenu" role="button" aria-expanded="false"
                        aria-controls="accessSubmenu" class="btn btn-secondary w-100 text-start btn-sm">
                         Access ▾
                     </a>
                     <div class="collapse" id="accessSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
                             <li><a href="{{ route('access.user.index') }}" class="text-white d-block mb-1">User Management</a></li>
-                            <li><a href="{{ route('access.role.index') }}" class="text-white d-block mb-1">Role Management</a></li>
                         </ul>
                     </div>
                 </li>
