@@ -31,6 +31,6 @@ class UserController extends Controller
             'status' => $request->status ?? true,
         ]);
 
-        return redirect()->back()->with('success', 'User created successfully!');
+        return redirect()->route('access.user.store')->with('success', 'User created successfully!');
     }
 }
