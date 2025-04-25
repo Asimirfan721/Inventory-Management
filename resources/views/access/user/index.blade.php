@@ -50,7 +50,7 @@
                         <div class="btn-group" role="group">
                             <a href="{{ route('access.user.index', $user->id) }}" class="btn btn-sm btn-info">View</a>
                             <a href="{{ route('access.user.update', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="{{ route('access.user.index', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
+                            <form action="{{ route('access.user.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
@@ -133,7 +133,7 @@
 <!-- Edit User Modal -->
 <div class="modal fade" id="editUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="editUserModalLabel{{ $user->id }}" aria-hidden="true">
     <div class="modal-dialog">
-      <form action="{{ route('access.user.update', $user->id) }}" method="POST">
+      <form action="{{ route('access.user.update', $user->id) }}" method="PUT">
         @csrf
         @method('PUT')
         <div class="modal-content">
@@ -190,4 +190,31 @@
     </div>
   </div>
   
+
+
+  <!-- Delete User Modal -->
+<div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="{{ route('access.user.destroy', $user->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    Are you sure you want to delete <strong>{{ $user->name }}</strong>?
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 @endsection
