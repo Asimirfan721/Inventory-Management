@@ -22,8 +22,8 @@
                     </a>
                     <div class="collapse" id="accessSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
-                            <li><a href="{{ route('access.create') }}" class="text-white d-block mb-1">User Management</a></li>
-                            <li><a href="{{ route('access.index') }}" class="text-white d-block mb-1">Role Management</a></li>
+                            <li><a href="{{ route('access.user.index') }}" class="text-white d-block mb-1">User Management</a></li>
+                            <li><a href="{{ route('access.role.index') }}" class="text-white d-block mb-1">Role Management</a></li>
                         </ul>
                     </div>
                 </li>

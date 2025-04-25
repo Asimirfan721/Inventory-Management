@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+//Access
+Route::get('/user', [AccessController::class, 'index'])->name('access.user.index');
+Route::post('/currencies', [CurrencyController::class, 'store'])->name('currency.store');
+Route::put('/currencies/{id}/update', [CurrencyController::class, 'update'])->name('currency.update');
+Route::delete('/currency/{id}', [CurrencyController::class, 'destroy'])->name('currency.destroy');
+Route::get('/currency/create', [CurrencyController::class, 'create'])->name('currency.create');
+
+
 // currency
 Route::get('/currencies', [CurrencyController::class, 'index'])->name('currency.index');
 Route::post('/currencies', [CurrencyController::class, 'store'])->name('currency.store');
