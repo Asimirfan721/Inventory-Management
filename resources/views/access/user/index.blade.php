@@ -131,68 +131,66 @@
   </div>
   
 <!-- Edit User Modal -->
+<!-- Edit User Modal -->
 <div class="modal fade" id="editUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="editUserModalLabel{{ $user->id }}" aria-hidden="true">
     <div class="modal-dialog">
-      <form action="{{ route('access.user.update', $user->id) }}" method="PUT">
-        @csrf
-        @method('PUT')
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editUserModalLabel{{ $user->id }}">Edit User</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-  
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label">Name</label>
-              <input type="text" name="name" value="{{ $user->name }}" class="form-control" required>
+        <!-- Change method="PUT" to method="POST" -->
+        <form action="{{ route('access.user.update', $user->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel{{ $user->id }}">Edit User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- All your input fields are good -->
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" value="{{ $user->name }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" value="{{ $user->email }}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" name="phone" value="{{ $user->phone }}" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <select name="role" class="form-select" required>
+                            <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select name="status" class="form-select" required>
+                            <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Active</option>
+                            <option value="0" {{ $user->status == 0 ? 'selected' : '' }}>Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password (Leave blank to keep same)</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
             </div>
-  
-            <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input type="email" name="email" value="{{ $user->email }}" class="form-control" required>
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label">Phone</label>
-              <input type="text" name="phone" value="{{ $user->phone }}" class="form-control">
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label">Role</label>
-              <select name="role" class="form-select" required>
-                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
-              </select>
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label">Status</label>
-              <select name="status" class="form-select" required>
-                <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Active</option>
-                <option value="0" {{ $user->status == 0 ? 'selected' : '' }}>Inactive</option>
-              </select>
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label">Password (Leave blank to keep same)</label>
-              <input type="password" name="password" class="form-control">
-            </div>
-          </div>
-  
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Update</button>
-          </div>
-  
-        </div>
-      </form>
+        </form>
     </div>
-  </div>
-  
+</div>
 
-
-  <!-- Delete User Modal -->
 <div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true">
     <div class="modal-dialog">
         <form action="{{ route('access.user.destroy', $user->id) }}" method="POST">

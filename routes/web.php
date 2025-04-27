@@ -20,9 +20,8 @@ Route::get('/', function () {
 //Access
 Route::get('/users', [UserController::class, 'index'])->name('access.user.index');
 Route::post('/users', [UserController::class, 'store'])->name('access.user.store');
-Route::put('/users/{id}', [UserController::class, 'update'])->name('access.user.update');  
+Route::put('/users/{id}', [UserController::class, 'update'])->name('access.user.update');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('access.user.destroy');
-
 
 
 // currency
