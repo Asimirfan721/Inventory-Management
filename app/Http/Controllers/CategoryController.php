@@ -8,8 +8,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        return view('product.category', compact('categories'));
+        $categories = Category::all();    // Fetch all categories from the database
+        return view('product.category', compact('categories')); // Pass the categories to the view
     }
 
     public function store(Request $request)
