@@ -35,8 +35,8 @@ public function update(Request $request, $id)
         'summary' => 'required|string|max:255',
     ]);
 
-    $brand = Brand::find($id);
-    $brand->update([
+    $brand = Brand::find($id);  // find the brand by ID 
+    $brand->update([ // update the brand with new data
         'title' => $request->title,
         'summary' => $request->summary,
     ]);
