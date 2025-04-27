@@ -31,7 +31,10 @@ class CategoryController extends Controller
             'slug' => 'required|string|max:255',
         ]);
 
-        $category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);     // Find the category by ID
+        if (!$category) {
+            return redirect()->back()->with('error', 'Category not found!');
+        }
         $category->update($request->all());
 
         return redirect()->route('category.index')->with('success', 'Category updated successfully!');
