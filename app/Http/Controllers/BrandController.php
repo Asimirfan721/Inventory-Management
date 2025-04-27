@@ -51,9 +51,9 @@ public function destroy($id)
 }
 public function create()
 {
-    $brands = Brand::all();
-    $currencies = Currency::all(); // if using
-    $companies = Company::all();   // if using
+    $brands = Brand::all();  //brand names are fetched from the database
+    $currencies = Currency::all(); // currencies are fetched from the database
+    $companies = Company::all();   // companies are fetched from the database
 
     return view('product.create', compact('brands', 'currencies', 'companies'));
 }
