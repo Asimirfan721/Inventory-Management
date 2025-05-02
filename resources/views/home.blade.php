@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 <div class="d-flex">
-    <!-- Sidebar -->
+    <!-- Sidebar  is here-->
     <div class="sidebar">
         <h4>SILVER LIBERTY LLC</h4>
         <div class="accordion" id="sidebarAccordion">
