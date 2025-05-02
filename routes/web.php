@@ -114,3 +114,6 @@ Route::get('/category/create', [CategoryController::class, 'index'])->name('cate
 
 // <?php
 Route::post('/access/user/store', [UserController::class, 'store'])->name('access.user.store');
+Route::get('/users/{id}', [UserController::class, 'show'])->name('access.user.show');
+
+
