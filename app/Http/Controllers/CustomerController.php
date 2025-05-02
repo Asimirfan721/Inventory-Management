@@ -14,7 +14,9 @@ class CustomerController extends Controller
         return view('customer.index', compact('companies','customers')); // compact currencies and companies
     }
 
-    public function store(Request $request)
+    public function store(Request $request) 
+    {
+        // Validate the request data
     {
         $request->validate([
             'name' => 'required|string', 
