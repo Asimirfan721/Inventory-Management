@@ -15,7 +15,7 @@ class ExpenseController extends Controller
     // Partial match on expense_id
     if ($request->filled('search')) {
         $search = trim($request->search);
-        $query->whereRaw('CAST(expense_id AS CHAR) LIKE ?', ["%{$search}%"]);
+        $query->whereRaw('CAST(expense_id AS CHAR) LIKE ?', ["%{$search}%"]); // Use raw query to cast expense_id to string
     }
 
     // Filter by type if provided
