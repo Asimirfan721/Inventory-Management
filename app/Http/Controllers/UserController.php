@@ -13,27 +13,30 @@ class UserController extends Controller
         return view('access.user.index', compact('users'));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'role' => 'required',
-        ]);
+   
+public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'phone' => 'nullable|string|max:15',
+        'role' => 'required|in:admin,user',
+        'status' => 'required|boolean',
+        'password' => 'required|string|min:8',
+    ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone' => $request->phone,
-            'role' => $request->role,
-            'status' => $request->status ?? true,
-        ]);
+    User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'role' => $request->role,
+        'status' => $request->status,
+        'password' => bcrypt($request->password),
+    ]);
 
-        return redirect()->route('access.user.store')->with('success', 'User created successfully!');
-    }
-    public function update(Request $request, $id)
+    return redirect()->route('access.user.index')->with('success', 'User created successfully.');
+}
+  public function update(Request $request, $id)
 {
     $user = User::findOrFail($id);
 

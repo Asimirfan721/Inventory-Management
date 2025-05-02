@@ -110,3 +110,7 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('category
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 Route::get('/category/create', [CategoryController::class, 'index'])->name('category.index');
+
+
+// <?php
+Route::post('/access/user/store', [UserController::class, 'store'])->name('access.user.store');
