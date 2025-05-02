@@ -5,6 +5,7 @@ use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Company; //company model
+use App\Models\Currency; //currency model
 
 class BrandController extends Controller
 {
