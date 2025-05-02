@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Company;
+use App\Models\Company; //company model
 
 class BrandController extends Controller
 {
