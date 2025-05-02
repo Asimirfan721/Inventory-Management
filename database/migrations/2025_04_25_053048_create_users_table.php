@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone')->nullable();
-            $table->string('role')->default('user'); // e.g., admin, user
+            $table->string('role')->default('user'); // e.g., admin, user     
             $table->boolean('status')->default(true); // active or inactive
             $table->timestamps();
         });
