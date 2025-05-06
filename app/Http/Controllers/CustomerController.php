@@ -9,7 +9,7 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customers = Customer::all();
+        $customers = Customer::all(); // customers are fetched from the database
         $companies = Company::all();
         return view('customer.index', compact('companies','customers')); // compact currencies and companies modern way to pass data to view
     }
