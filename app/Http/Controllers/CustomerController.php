@@ -28,9 +28,9 @@ class CustomerController extends Controller
 
         Customer::create($request->all());
 
-        return redirect()->route('customer.index')->with('success', 'Customer created successfully.');
+        return redirect()->route('customer.index')->with('success', 'Customer created successfully.'); // view issue resolved
     }
-
+    }
     public function update(Request $request, $id)
     {
         $request->validate([
