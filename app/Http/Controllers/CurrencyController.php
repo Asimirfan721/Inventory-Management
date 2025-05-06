@@ -57,7 +57,7 @@ public function create()
 }
 public function destroy($id)
 {
-    // Find the currency by its ID
+    // Find the currency by its ID is called here
     $currency = Currency::findOrFail($id);
 
     // Delete the currency
