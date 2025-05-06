@@ -38,7 +38,7 @@ public function create()
             'currency' => $request->currency,
         ]);
 
-        return redirect()->route('currency.index')->with('success', 'Currency added successfully!');
+        return redirect()->route('currency.index')->with('success', 'Currency added successfully!'); // view issue resolved
     }
     public function update(Request $request, $id)
 {
