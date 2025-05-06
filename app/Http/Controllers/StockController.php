@@ -13,7 +13,7 @@ class StockController extends Controller
     {
         $stocks = Stock::with('supplier')->get();
         $suppliers = Supplier::all();
-        return view('stocks.index', compact('stocks', 'suppliers'));
+        return view('stocks.index', compact('stocks', 'suppliers')); // Pass suppliers to the view
     }
     
   
