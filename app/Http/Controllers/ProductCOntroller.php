@@ -13,8 +13,8 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $products = Product::with('brand')->get(); // 👈 Eager load brand relationship has been added
-        $brands = Brand::all(); // 👈 Fetch all brands
-        $categories = Category::all(); // ⬅️ Add this line
+        $brands = Brand::all(); // 👈 Fetch all brands in the view
+        $categories = Category::all(); // ⬅️ Add this line 
 
         return view('product.index', compact('products', 'brands', 'categories')); // adjust view path if needed
     }
