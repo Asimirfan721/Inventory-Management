@@ -8,7 +8,7 @@ use App\Models\Brand;
 use App\Models\Category;
 class ProductController extends Controller
 {
-    // Show all products
+    // Show all products view
     public function index()
     {
         $products = Product::all();
