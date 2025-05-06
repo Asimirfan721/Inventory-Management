@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        $products = Product::with('brand')->get(); // 👈 Eager load brand relationship
+        $products = Product::with('brand')->get(); // 👈 Eager load brand relationship has been added
         $brands = Brand::all(); // 👈 Fetch all brands
         $categories = Category::all(); // ⬅️ Add this line
 
