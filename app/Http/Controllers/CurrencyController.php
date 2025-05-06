@@ -13,7 +13,7 @@ class CurrencyController extends Controller
     if ($request->filled('search')) {
         $search = trim($request->search);
         $query->where(function($q) use ($search) {
-            $q->where('currency', 'like', "%{$search}%")
+            $q->where('currency', 'like', "%{$search}%") //search by currency name added
               ->orWhere('code', 'like', "%{$search}%");
         });
     }
