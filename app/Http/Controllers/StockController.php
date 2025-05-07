@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request; //request
+use Illuminate\Http\Request; //request is restricted
 use App\Models\Stock;
 use App\Models\Supplier; // model is restricted
 
