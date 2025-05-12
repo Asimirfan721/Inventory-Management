@@ -12,7 +12,7 @@ class StockController extends Controller
     public function index()
     {
         $stocks = Stock::with('supplier')->get();
-        $suppliers = Supplier::all(); // Fetch all suppliers for the dropdown
+        $suppliers = Supplier::all(); 
         return view('stocks.index', compact('stocks', 'suppliers')); // Pass suppliers to the view
     }
     
