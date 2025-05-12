@@ -18,7 +18,7 @@ class StockController extends Controller
     
   
 
-    // Store a newly created stock in storage
+    
     public function store(Request $request)
     {
         $request->validate([
