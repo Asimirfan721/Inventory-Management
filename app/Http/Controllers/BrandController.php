@@ -12,7 +12,7 @@ class BrandController extends Controller
     public function index()
     {
         $brands = Brand::all();
-        return view('product.brand', compact('brands')); // compact('brands') passes the brands data to the view
+        return view('product.brand', compact('brands')); // compact('brands') here passes the brands data to the view
     }
     public function store(Request $request)
 {
