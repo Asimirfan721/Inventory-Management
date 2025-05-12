@@ -76,6 +76,6 @@ class StockController extends Controller
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry deleted successfully.');
     }
-    public function create(){ $suppliers = Supplier::all(); // or apply filters if needed
+    public function create(){ $suppliers = Supplier::all(); // or 
         return view('stocks.create', compact('suppliers')); }
 }
