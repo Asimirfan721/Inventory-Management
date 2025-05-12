@@ -8,7 +8,7 @@ use App\Models\Supplier;
 
 class StockController extends Controller
 {
-    // Display a listing of the stocks
+    
     public function index()
     {
         $stocks = Stock::with('supplier')->get();
