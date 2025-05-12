@@ -68,7 +68,7 @@ class StockController extends Controller
         return redirect()->route('stocks.index')->with('success', 'Stock entry updated successfully.');
     }
 
-    // Remove the specified stock from storage
+    
     public function destroy($id)
     {
         $stock = Stock::findOrFail($id); // stock id
