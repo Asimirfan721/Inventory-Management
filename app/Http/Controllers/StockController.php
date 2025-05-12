@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request; 
-use App\Models\Stock; // model is restricted here
+use App\Models\Stock; 
 use App\Models\Supplier; // model is restricted
 
 class StockController extends Controller
