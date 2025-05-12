@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Brand;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Company; //company model
+use App\Models\Product; // model
+use App\Models\Company; //company model is added here
 use App\Models\Currency; //currency model
 
 class BrandController extends Controller
@@ -12,11 +12,11 @@ class BrandController extends Controller
     public function index()
     {
         $brands = Brand::all();
-        return view('product.brand', compact('brands')); // compact('brands') passes the brands data to the view
+        return view('product.brand', compact('brands')); // compact('brands') here passes the brands data to the view
     }
     public function store(Request $request)
 {
-    $request->validate([ 
+    $request->validate([   //validation
         'title' => 'required|string|max:255',
         'summary' => 'required|string|max:255',
     ]);
@@ -52,7 +52,7 @@ public function destroy($id)
 }
 public function create()
 {
-    $brands = Brand::all();  //brand names are fetched from the database
+    $brands = Brand::all();  //brand names are fetched from the database 
     $currencies = Currency::all(); // currencies are fetched from the database
     $companies = Company::all();   // companies are fetched from the database
 
