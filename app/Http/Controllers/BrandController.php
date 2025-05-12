@@ -52,7 +52,7 @@ public function destroy($id)
 }
 public function create()
 {
-    $brands = Brand::all();  //brand names are fetched from the database
+    $brands = Brand::all();  //brand names are fetched from the database 
     $currencies = Currency::all(); // currencies are fetched from the database
     $companies = Company::all();   // companies are fetched from the database
 
