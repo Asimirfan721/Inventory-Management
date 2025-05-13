@@ -77,7 +77,7 @@ public function create()
 {
     $brands = Brand::all();
     $categories = Category::all(); // ⬅category called in function
-
+// first commit 
    
     return view('product.create', compact('brands', 'categories' ));
 }
