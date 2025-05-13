@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request; //request is restricted
-use App\Models\Stock; // model is restricted
-use App\Models\Supplier; // model is restricted
+use Illuminate\Http\Request; 
+use App\Models\Stock; 
+use App\Models\Supplier;  
 
 class StockController extends Controller
 {
-    // Display a listing of the stocks
+    
     public function index()
     {
         $stocks = Stock::with('supplier')->get();
-        $suppliers = Supplier::all(); // Fetch all suppliers for the dropdown
-        return view('stocks.index', compact('stocks', 'suppliers')); // Pass suppliers to the view
+        $suppliers = Supplier::all(); 
+        return view('stocks.index', compact('stocks', 'suppliers')); 
     }
     
   
 
-    // Store a newly created stock in storage
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -68,7 +68,7 @@ class StockController extends Controller
         return redirect()->route('stocks.index')->with('success', 'Stock entry updated successfully.');
     }
 
-    // Remove the specified stock from storage
+    
     public function destroy($id)
     {
         $stock = Stock::findOrFail($id); // stock id
@@ -76,6 +76,6 @@ class StockController extends Controller
 
         return redirect()->route('stocks.index')->with('success', 'Stock entry deleted successfully.');
     }
-    public function create(){ $suppliers = Supplier::all(); // or apply filters if needed
+    public function create(){ $suppliers = Supplier::all(); // or 
         return view('stocks.create', compact('suppliers')); }
 }
