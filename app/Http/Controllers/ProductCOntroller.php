@@ -76,7 +76,7 @@ class ProductController extends Controller
 public function create()
 {
     $brands = Brand::all();
-    $categories = Category::all(); // ⬅️ Add this line
+    $categories = Category::all(); // ⬅category called in function
 
    
     return view('product.create', compact('brands', 'categories' ));
