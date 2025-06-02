@@ -1,0 +1,213 @@
+[33m97c6055[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m first push
+[33m018517a[m Merge branch 'main' of https://github.com/Asimirfan721/Inventory-Management
+[33mb96da73[m category called in create function
+[33mf6e7793[m apply filters if needed
+[33m67ac2c4[m Remove the specified stock from storag
+[33m5f13e3f[m Store a newly created stock in storage
+[33mbe37f65[m Pass suppliers to the view
+[33m5a4cbe4[m Fetch all suppliers for the dropdown
+[33me198e5b[m Display a listing of the stocks
+[33mebe616a[m Merge branch 'main' of https://github.com/Asimirfan721/Inventory-Management
+[33m4ca4658[m supplier model is restricted
+[33m794baf5[m model removed
+[33m20751d3[m request reverted
+[33mc3b95e4[m here it's a brand updated
+[33mdfc32b8[m validation added
+[33m3c16881[m here it's a brand
+[33m023fe61[m brandcontroller model
+[33mf32893a[m first commit from inventory
+[33mc1d0ccc[m supplier
+[33m9f373df[m model is restricted
+[33m644833e[m request is restricted
+[33mda8335a[m request added
+[33m8a6df69[m model restricted
+[33m3d382b5[m Model
+[33m5e3af74[m Pass supplier to view
+[33m2dc1e34[m customer fetched form DB
+[33mb6e7381[m Find the currency by its ID
+[33ma05cdd9[m account are fetched from the database
+[33m2464647[m Eager load brand relationship has been added
+[33m8baa39d[m Fetch all brands in the view
+[33m53489c2[m search by currency name added
+[33mf2aa74c[m adjust view path
+[33m3012d75[m Fetch all brands in the view
+[33m418f6e9[m Eager load brand relationship has been added
+[33m30fa460[m compact currencies and companies modern way to pass data to view
+[33mf0318f0[m view issue resolved
+[33m172ba3c[m customer search is added
+[33m3dcbd49[m product added as a search
+[33ma483942[m expense search added
+[33m5962289[m company called  in inventory
+[33m9cbf3d7[m company added in inventory
+[33m23f8c61[m sidebar is added in inventory
+[33m887025b[m modal loop issue was resolved
+[33md67ed98[m user controller is updated with create user button
+[33m859be3b[m user was not defined in role area cleared that issue
+[33mb1393d5[m migration issues resolved in Inventory
+[33m3cb4214[m category not found error showed
+[33maf10acd[m category controller category fetched from database
+[33mdbf6898[m brand, currencies, companies fetched from database
+[33m312a282[m brand id defined
+[33m1dff573[m compact variable
+[33mddb977f[m comments for account controller
+[33m8767ed9[m edit and delete methods problem persisting
+[33m4cc7677[m routes added, edit and delete modal logic and view added
+[33maa3a125[m successfully user is being created also visible on the frontend, now need to add edit and delete functionality
+[33m9dcc692[m modal added, with user view. routes also updated
+[33m453cee7[m migration, modal and controller completed
+[33mb22d336[m routes, migration done
+[33me764c42[m access button created with sub buttons
+[33m07657bd[m account number section complete
+[33m36e6007[m edit modeal drop down corrected
+[33me3b7a62[m dropdwon working perfectlyl but it's showing number instead of name in the dropdown
+[33m2ec3682[m added Dropdown with passed variable
+[33mb1f1472[m pass accounts from controller to view
+[33mb89613d[m stock id defined
+[33ma2cb3f4[m validaiton rules for stock defined
+[33m7ca04f1[m redirected to created view
+[33m2313c1f[m redirection issue reolved on expense
+[33mdba177a[m compact currencies added
+[33m49f76ba[m SKU is Number defined
+[33mee56868[m currency/code search added with clear button
+[33m21f1c39[m search with expense id is corrected, now user can search with partial number. only expense id can be searched
+[33m6b47c3f[m brand issue also resolved, converted brand colunm name to brand_id
+[33m6617c55[m categories issue resolved
+[33m75b0d21[m currencies issue resolved as well
+[33m7bb9893[m company management data issue set but still currency is throwing an error
+[33m0c02f55[m clear all button added & functionality handeled
+[33m9bbd279[m filter for searching the data added
+[33m0aa416a[m dropdown in expense management added
+[33m1dde833[m brand-id restored, migrations updated but still brand is not visible to frontend
+[33m545bce6[m brand id is is stored correctly in database only need to show it on frontend
+[33mf721ec7[m when adding product, it's not redirecting to index page and brand is also creating an issue
+[33m02cad03[m categories undefined variable issue resolved
+[33m33ec1b9[m categories crud applied
+[33me2fdf98[m category button added along with remaining
+[33m3a35773[m harcoded categories has been converted to dropdown
+[33m13e9471[m category view completed
+[33md5e0c7f[m categories route has been defined
+[33md5a96ca[m logic has been added for category
+[33mcb87161[m controller for category added
+[33m7e60312[m migraiton complete
+[33mdbdd504[m migrations and category added
+[33md1bf7c4[m brand dropdown issue resolved ->name was the issue
+[33m43a1a98[m currencyid
+[33mc202aa2[m compact issue
+[33mb63f020[m brand issue
+[33m41af971[m brand string issue
+[33mfdc04a1[m product management brand issue resolved
+[33macc4046[m dropdwon brands are available but they are not visible
+[33m04804dc[m brand feature is in progress
+[33ma8695a4[m brandcontroller completed
+[33ma19ce5e[m migration added
+[33mfbbd6f4[m brand feature added
+[33m8b14e5c[m home page issue resolved, and design also updated
+[33m2d45bb5[m while creating company, user can select currency from dropdwon
+[33m74b7869[m customer browse page issue fixed
+[33mebadb43[m design issue resolved
+[33m4191ca9[m  Bugs found during testing, stock browse page, and customer browse page not funcitoning very well
+[33m02d228f[m tags revised
+[33m52f4a95[m style.css file added for css and linked that file with complete features so the design of the Project is complete
+[33mc6e2cac[m company can select currency via dropdown
+[33m33b6100[m all issues related to company to are resolved
+[33m6fcd8c3[m issue resolved, company name is successfully stored and visible
+[33md4de5d9[m pages redesigned for currency both create and index, but compay is not being stored in database
+[33mcd2b196[m company dropdwon also working in customer
+[33ma4b84a5[m customer form seprated
+[33m995d2d1[m complete supplier dropw down work, there was issue in the database resolved
+[33mab569ed[m company drop down issue is still persisting
+[33m8f4b5b7[m supplier controller updated for company_id
+[33md366422[m relationship created between company& customer, supplier
+[33md224685[m migrations updated, company_id added in both suppliers and customers
+[33maa3e057[m complete drop down working but side bar is creating issues
+[33ma71d970[m drop down added on all buttons but creating scrolling issue
+[33m6151f1e[m collapisble dropdown menu added for product
+[33m690eec9[m stock page is separated
+[33m3ec7dba[m redirecting to index page issue resolved
+[33m45a1bc9[m Account form seprated
+[33m13d7061[m expense id created
+[33md2f9f5c[m expense added but form submitting creating an issue
+[33mddfb5c7[m supplier completed
+[33m8e4e42a[m product page completed but still success message is creating an error
+[33mc4c18a1[m buttons placed and designed perfectly
+[33m5ee2a22[m company, currency and their pages are complete
+[33m6b0035a[m form seprated for currency controller
+[33md51e568[m home page is redesigned
+[33m2aae65a[m supplier id controller and model debugged
+[33m42bb2bb[m Stock cotroller updated & stock.index also updated but still supplier is creating issues
+[33m0b37177[m supplier is added but it's not extracting supplier-id from database
+[33macc9cbe[m stock logic updated controller
+[33m08193ce[m migration updated & supplier id added
+[33m8e35d1a[m model relationship created between stocks & supplier
+[33mf5ece75[m edit and delete issue resolved
+[33m4c1009c[m create stock button working fine but edit and delete aren't working
+[33m1baaf63[m stock is in some shape but create stock button not working
+[33m94ccfed[m Model & view complete
+[33m93bc6db[m route & button complete for Stock feature
+[33m1084283[m edit button was not populating data. fixed that issue
+[33ma498bfc[m Drop down for category
+[33ma6436a2[m expense and account's placeholder placed
+[33md6b8ba3[m product
+[33m2db5e99[m company's placeholder completed
+[33m43a3fda[m placeholder completed
+[33m73b04de[m expense issues resolved
+[33mb2acdec[m placeholders added
+[33m82905b5[m store method in controller fixed
+[33m803ad12[m controller work complete
+[33mbc3f2d6[m model & migration complete
+[33me51d8b7[m migration created and completed
+[33m6cddba8[m view issue resolved
+[33m31f9a1a[m model is working now
+[33m63809a9[m view completed
+[33m8fecedd[m route and button for Account is complete
+[33ma0f0a63[m edit issue also resolved
+[33m3530e0b[m expense feature is complete but edit button still not working fine
+[33m16d4584[m migration is complete but has some issues
+[33mdbe6088[m expense controller udpated
+[33m86e45ce[m route for expense are created
+[33me019a00[m Expense View is ready
+[33m2702732[m migration complete
+[33ma899927[m controller CRUD updated
+[33me4b51fc[m model for supplier is complete
+[33m6a42405[m route and view is complete
+[33m69c6a91[m model complete with validation
+[33med0659e[m migration updated
+[33m6f91e4a[m migration ready & controller complete for supplier
+[33mff0af59[m blade file for supplier ready & routes also updated
+[33m454a0ee[m Supplier model is created and now it's work has started
+[33mae549ad[m delete button for product also added
+[33me19a0ee[m company delete function added
+[33mf5fff1f[m Delete function added for currency
+[33m0d8754e[m product complete working, issue resolved for data too
+[33m5731934[m Post issue resolved
+[33m7340986[m route issue & method is not calling correctly
+[33m245ed85[m data is being saved in the database
+[33me004c19[m routes and model is updated
+[33m3e901a7[m controller and model for product managment added
+[33m4401add[m company construction complete
+[33m5ddc0dd[m Name, currency & log issue is persisting
+[33m33d8343[m data not being saved
+[33m9b9aff7[m controller company updated
+[33mf56cce9[m company is under development
+[33md00fa27[m designed page
+[33m4917acd[m home page created
+[33md2f4158[m edit button issue resolved
+[33m4853761[m edit buttons modal
+[33m3baf910[m complete currency model is working
+[33m5d19f1b[m include issue resolved & now it's visible
+[33m9fbf95e[m Blade and routes are set for currency
+[33m36d005f[m model of currency updated
+[33mef9186c[m Currency Logic updated
+[33mf408d95[m currency Controller
+[33m3d0335e[m model and migration for currency
+[33m976af79[m model is updated
+[33m5a98a7c[m controller company
+[33m1829175[m model company updated
+[33m284bfc2[m company controller added
+[33m3c140cc[m company model
+[33m73542a0[m currency model issues
+[33m3044c19[m index for currency added
+[33m7140549[m currency controller funciton updated
+[33m329abf0[m controller for currency
+[33m46d4d93[m model is created for currency
+[33m89b85e8[m first push

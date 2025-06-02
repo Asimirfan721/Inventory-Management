@@ -10,7 +10,7 @@ class AccountController extends Controller
 {
     public function index()
     {
-        $accounts = Account::all();   //    account are fetched from the database
+        $accounts = Account::all();   //    account are fetched from the databases
         return view('account.index', compact('accounts'));
     }
 

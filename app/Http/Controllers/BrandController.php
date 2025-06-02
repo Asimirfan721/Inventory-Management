@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Brand;
 use Illuminate\Http\Request;
-use App\Models\Product; // model
+use App\Models\Product; // model is here
 use App\Models\Company; //company model is added here
 use App\Models\Currency; //currency model
 
