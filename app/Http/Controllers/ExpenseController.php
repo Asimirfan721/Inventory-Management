@@ -23,8 +23,8 @@ class ExpenseController extends Controller
         $query->where('type', $request->type);
     }
 
-    $expenses = $query->get();
-    $accounts = Account::all(); // Add this line
+    $expenses = $query->get(); // expenses query $
+    $accounts = Account::all(); // finding all account
 
 
     return view('expense.index', compact('expenses', 'accounts'));

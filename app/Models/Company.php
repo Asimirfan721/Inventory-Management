@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Company extends Model
-{
+{ 
     use HasFactory;
 
     protected $fillable = ['logo', 'name', 'currency_id'];
