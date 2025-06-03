@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Account;
+use App\Models\Account; // account model
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -21,7 +21,7 @@ class AccountController extends Controller
         'phone'          => 'nullable|string|max:20',
         'account_number' => 'required|string|max:100',
         'description'    => 'nullable|string|max:500',
-        'balance'        => 'nullable|numeric|min:0',
+        'balance'        => 'nullable|numeric|min:0', // default is not zero
     ]);
 
     Account::create([ 
@@ -45,7 +45,7 @@ class AccountController extends Controller
              'phone'           => 'nullable|string|max:20',
              'account_number'  => 'required|string|max:100',
             'description'     => 'nullable|string',
-            'balance'         => 'nullable|numeric',
+            'balance'         => 'nullable|numeric', //
             
         ]);
 
