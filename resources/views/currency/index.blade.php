@@ -3,10 +3,10 @@
 @section('content')
 <div class="container"> 
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <h3 class="mb-4">Currency Management</h3>
+  <h3 class="mb-4">currency Management</h3>
 
   <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
-  <a href="{{ route('currency.create') }}" class="btn btn-primary mb-3">+ Create Currency</a>
+  <a href="{{ route('currency.create') }}" class="btn btn-primary mb-3">+ Create currency</a>
   <form action="{{ route('currency.index') }}" method="GET" class="form-inline mb-3">
   <input type="text" name="search" class="form-control mr-2" placeholder="Search currency or code" value="{{ request('search') }}">
   <button type="submit" class="btn btn-outline-primary">Search</button>
@@ -18,7 +18,7 @@
       <tr>
         <th>No</th>
         <th>Code</th>    
-        <th>Currency</th>
+        <th>currency</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -47,14 +47,14 @@
       @method('PUT')
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Currency</h5>
+          <h5 class="modal-title">Edit currency</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span>&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Currency</label>
+            <label>currency</label>
             <input type="text" name="currency" class="form-control" value="{{ $currency->currency }}" required>
           </div>
           <div class="form-group">
@@ -81,7 +81,7 @@
       @method('DELETE')
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Delete Currency</h5>
+          <h5 class="modal-title">Delete currency</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span>&times;</span>
           </button>

@@ -14,7 +14,7 @@
         @csrf
 
         <div class="form-group">
-            <label>Currency</label>
+            <label>currency</label>
             <input type="text" name="currency" class="form-control" placeholder="Name of currency" required>
         </div>
 
