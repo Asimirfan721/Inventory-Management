@@ -7,7 +7,7 @@
     <h3 class="mb-4">Add New Company</h3>
 
     <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
-    <a href="{{ route('company.index') }}" class="btn btn-primary mb-3">Back to Currency Page</a>
+    <a href="{{ route('company.index') }}" class="btn btn-primary mb-3">Back to Company Page</a>
 
     <form action="{{ route('company.store') }}" method="POST">
         @csrf
