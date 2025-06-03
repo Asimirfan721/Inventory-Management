@@ -120,6 +120,18 @@
                         </ul>
                     </div>
                 </li>
+                 <li class="mt-3">
+                    <a data-bs-toggle="collapse" href="#stockSubmenu" role="button" aria-expanded="false"
+                       aria-controls="stockSubmenu" class="btn btn-primary w-100 text-start btn-sm">
+                        Currency Management ▾
+                    </a>
+                    <div class="collapse" id="stockSubmenu" data-bs-parent="#sidebarAccordion">
+                        <ul class="list-unstyled ps-3 mt-2">
+                            <li><a href="{{ route('currency.index') }}" class="text-white d-block mb-1">Browse Currency</a></li>
+                            <li><a href="{{ route('currency.create') }}" class="text-white d-block mb-1">Add Currency</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

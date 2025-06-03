@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('role')->default('user'); // e.g., admin, user     
-            $table->boolean('status')->default(true); //  
+            $table->boolean('status')->default(true); 
         });
     }
     
