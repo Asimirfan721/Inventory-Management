@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <head> <link rel="stylesheet" href="{{ asset('css/style.css') }}"></head>
+    <head> <link rel="stylesheet" href="{{ asset('css/style.css') }}"></head> 
 
 
     <h3 class="mb-4">Company Management</h3> 

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('code');
             $table->string('currency');
             $table->timestamps();
+        //  $table->int('currency_id');
         });
     }
     
