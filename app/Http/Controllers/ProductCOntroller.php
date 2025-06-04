@@ -37,8 +37,9 @@ class ProductController extends Controller
             // 'brand' => $request->brand, // if you want to store brand name instead of id
             'SKU' => $request->SKU,
         ]);
-        //return redirect()->route('product.index')->with('success', 'Product added successfully!');
-        return redirect()->back()->with('success', 'Product added successfully!');
+       return redirect()->route('product.index')->with('success', 'Product added successfully!');
+        
+       // return redirect()->back()->with('success', 'Product added successfully!');
     }
 
     // Update existing product
