@@ -33,7 +33,7 @@ class ProductController extends Controller
         Product::create([
             'product' => $request->product,
             'category' => $request->category,
-            'brand' => $request->brand, // 👈 assuming your column is named brand
+             'brand_id' => $request->brand, // ✅ fixed this line
             // 'brand' => $request->brand, // if you want to store brand name instead of id
             'SKU' => $request->SKU,
         ]);
@@ -55,7 +55,7 @@ class ProductController extends Controller
     $product->update([
         'product' => $request->product,
         'category' => $request->category,
-        'brand' => $request->brand,
+         'brand_id' => $request->brand, // ✅ fixed this line
         'SKU' => $request->SKU, // sku is a number
     ]);
 
