@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Expense;
-use App\Models\Account;
+use App\Models\Account; 
 
 class ExpenseController extends Controller
 {
@@ -55,6 +55,7 @@ class ExpenseController extends Controller
     }
     
     public function update(Request $request, $id){
+        
         $request->validate([
             'expense_id' => 'required|integer',
             'date' => 'required|date',
@@ -67,13 +68,13 @@ class ExpenseController extends Controller
     
         $expense = Expense::findOrFail($id);
         $expense->update([
-            'expense_id' => $request->Expense_ID,
+            'expense_id' => $request->expense_id,
             'date' => $request->date,
-            'note' => $request->Note,
-            'type' => $request->Type,
-            'amount' => $request->Amount,
-            'account' => $request->Account,
-            'remarks' => $request->Remarks,
+            'note' => $request->note,
+            'type' => $request->type,
+            'amount' => $request->amount,
+            'account' => $request->account,
+            'remarks' => $request->remarks,
         ]);
     
         return redirect()->route('expense.index')->with('success', 'Expense updated successfully.');

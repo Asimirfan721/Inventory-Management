@@ -29,7 +29,7 @@
         <th>No</th>
         <th>Expense_ID</th>
         <th>Date</th>
-        <th>Expense Description</th>
+       <th>Note</th>
         <th>Type</th>
         <th>Amount</th>
         <th>Account</th>
