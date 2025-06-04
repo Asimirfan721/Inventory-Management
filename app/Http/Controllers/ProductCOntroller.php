@@ -69,7 +69,7 @@ class ProductController extends Controller
     $product = Product::findOrFail($id);
 
     // Delete the currency
-    $product->delete();
+    $product->delete(); 
 
     // Redirect back with success message
     return redirect()->back()->with('success', 'product deleted successfully.');
