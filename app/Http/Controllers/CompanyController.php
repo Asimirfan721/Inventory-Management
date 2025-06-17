@@ -10,7 +10,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies = Company::with('currency')->get(); // eager load currency
+        $companies = Company::with('currency')->get(); // eager  
         $currencies = Currency::all();   // Not loading currency, it's not 
         return view('company.index', compact('companies', 'currencies'));
     }
