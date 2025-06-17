@@ -9,5 +9,7 @@ use App\Http\Controllers\AccountController;
 
 class ContainerCotroller extends Controller
 {
-    //
+     public function index(){
+        
+     }   //
 }
