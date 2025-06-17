@@ -11,7 +11,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::with('currency')->get(); // eager load currency
-        $currencies = Currency::all();
+        $currencies = Currency::all();   // Not loading currency, it's not being stored in database
         return view('company.index', compact('companies', 'currencies'));
     }
 
