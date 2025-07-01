@@ -38,11 +38,11 @@ public function create()
             'currency' => $request->currency,
         ]);
 
-        return redirect()->route('currency.index')->with('success', 'Currency added successfully!'); // view issue resolved
+        return redirect()->route('currency.index')->with('success', 'Currency added successfully!'); // view issues resolved
     }
     public function update(Request $request, $id)
 {
-    $request->validate([
+    $request->validate([             //validation
         'code' => 'required|string|max:10',
         'currency' => 'required|string|max:255',
     ]);
@@ -58,6 +58,7 @@ public function create()
 public function destroy($id)
 {
     // Find the currency by its ID is called here
+
     $currency = Currency::findOrFail($id);
 
     // Delete the currency
