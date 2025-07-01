@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,20 +6,19 @@
 
 <div class="d-flex">
     <!-- Sidebar  is here-->
-    <div class="sidebar bg-dark text-white">
-        <h4 class="mb-4 text-center">SILVER LIBERTY LLC</h4>
+    <div class="sidebar">
+        <h4>SILVER LIBERTY LLC</h4>
         <div class="accordion" id="sidebarAccordion">
             <ul class="list-unstyled">
-                <li class="mb-2 fw-bold text-uppercase small">Main</li>
-                <li>
-                    <a href="#" class="text-white d-block mb-2">
-                        <i class="bi bi-speedometer2 me-2"></i> Dashboard
-                    </a>
-                </li>
-                <li>
+                <li>Dashboard</li>
+              
+                    
+
+                
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#accessSubmenu" role="button" aria-expanded="false"
-                       aria-controls="accessSubmenu" class="btn btn-secondary w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-person-lock me-2"></i> Access ▾
+                       aria-controls="accessSubmenu" class="btn btn-secondary w-100 text-start btn-sm">
+                        Access ▾
                     </a>
                     <div class="collapse" id="accessSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
@@ -26,11 +26,11 @@
                         </ul>
                     </div>
                 </li>
-                <li class="mb-2 fw-bold text-uppercase small mt-3">Management</li>
-                <li>
+                
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#companySubmenu" role="button" aria-expanded="false"
-                       aria-controls="companySubmenu" class="btn btn-primary w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-building me-2"></i> Company ▾
+                       aria-controls="companySubmenu" class="btn btn-primary w-100 text-start btn-sm">
+                        Company Management ▾
                     </a>
                     <div class="collapse" id="companySubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
@@ -39,24 +39,27 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+                
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#productSubmenu" role="button" aria-expanded="false"
-                       aria-controls="productSubmenu" class="btn btn-secondary w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-box-seam me-2"></i> Product ▾
+                       aria-controls="productSubmenu" class="btn btn-secondary w-100 text-start btn-sm">
+                        Product Management ▾
                     </a>
                     <div class="collapse" id="productSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
-                            <li><a href="{{ route('product.create') }}" class="text-white d-block mb-1">Add Product</a></li>
-                            <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Browse Product</a></li>
-                            <li><a href="{{ route('product.brand')}}" class="text-white d-block mb-1">Brand</a></li>
-                            <li><a href="{{ route('product.category')}}" class="text-white d-block mb-1">Category</a></li>
+                        <li><a href="{{ route('product.create') }}" class="text-white d-block mb-1">Add Product</a></li> 
+                        <li><a href="{{ route('product.index') }}" class="text-white d-block mb-1">Browse Product</a></li>
+                            <li><a href="{{ route('product.brand')}}"class="text-white d-block mb-1">Brand</a></li>
+                            <li><a href="{{ route('product.category')}}"class="text-white d-block mb-1">Category</a></li>
+                        
                         </ul>
                     </div>
                 </li>
-                <li>
+
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#supplierSubmenu" role="button" aria-expanded="false"
-                       aria-controls="supplierSubmenu" class="btn btn-danger w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-truck me-2"></i> Supplier ▾
+                       aria-controls="supplierSubmenu" class="btn btn-danger w-100 text-start btn-sm">
+                        Supplier Management ▾
                     </a>
                     <div class="collapse" id="supplierSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
@@ -65,10 +68,11 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#customerSubmenu" role="button" aria-expanded="false"
-                       aria-controls="customerSubmenu" class="btn btn-primary w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-people me-2"></i> Customer ▾
+                       aria-controls="customerSubmenu" class="btn btn-primary w-100 text-start btn-sm">
+                        Customer Management ▾
                     </a>
                     <div class="collapse" id="customerSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
@@ -77,10 +81,11 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#expenseSubmenu" role="button" aria-expanded="false"
-                       aria-controls="expenseSubmenu" class="btn btn-secondary w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-cash-stack me-2"></i> Expense ▾
+                       aria-controls="expenseSubmenu" class="btn btn-secondary w-100 text-start btn-sm">
+                        Expense Management ▾
                     </a>
                     <div class="collapse" id="expenseSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
@@ -89,10 +94,11 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#accountSubmenu" role="button" aria-expanded="false"
-                       aria-controls="accountSubmenu" class="btn btn-danger w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-wallet2 me-2"></i> Account ▾
+                       aria-controls="accountSubmenu" class="btn btn-danger w-100 text-start btn-sm">
+                        Account Management ▾
                     </a>
                     <div class="collapse" id="accountSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
@@ -101,10 +107,11 @@
                         </ul>
                     </div>
                 </li>
-                <li>
+
+                <li class="mt-3">
                     <a data-bs-toggle="collapse" href="#stockSubmenu" role="button" aria-expanded="false"
-                       aria-controls="stockSubmenu" class="btn btn-primary w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-archive me-2"></i> Stock ▾
+                       aria-controls="stockSubmenu" class="btn btn-primary w-100 text-start btn-sm">
+                        Stock Management ▾
                     </a>
                     <div class="collapse" id="stockSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
@@ -113,12 +120,12 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <a data-bs-toggle="collapse" href="#currencySubmenu" role="button" aria-expanded="false"
-                       aria-controls="currencySubmenu" class="btn btn-info w-100 text-start btn-sm mb-2">
-                        <i class="bi bi-currency-exchange me-2"></i> Currency ▾
+                 <li class="mt-3">
+                    <a data-bs-toggle="collapse" href="#stockSubmenu" role="button" aria-expanded="false"
+                       aria-controls="stockSubmenu" class="btn btn-primary w-100 text-start btn-sm">
+                        Currency Management ▾
                     </a>
-                    <div class="collapse" id="currencySubmenu" data-bs-parent="#sidebarAccordion">
+                    <div class="collapse" id="stockSubmenu" data-bs-parent="#sidebarAccordion">
                         <ul class="list-unstyled ps-3 mt-2">
                             <li><a href="{{ route('currency.index') }}" class="text-white d-block mb-1">Browse Currency</a></li>
                             <li><a href="{{ route('currency.create') }}" class="text-white d-block mb-1">Add Currency</a></li>
@@ -159,3 +166,4 @@
     padding: 5px;
 }
 </style>
+ 
