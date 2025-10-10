@@ -29,10 +29,7 @@
                 <!-- Display the image instead of file name -->
                 <td>
                     @if($company->logo)
-                        <img src="{{ asset('storage/' . $company->logo) }}" 
-                             alt="logo" 
-                             width="70" 
-                             class="rounded border">
+                       <img src="{{ asset('storage/' . $company->logo) }}" alt="Logo" width="50" height="50">
                     @else
                         <span class="text-muted">No Logo</span>
                     @endif
