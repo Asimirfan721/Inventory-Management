@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Currency; 
-
+use Illuminate\Support\Facades\Storage;
 class CompanyController extends Controller
 {
     public function index()
@@ -16,42 +16,51 @@ class CompanyController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'logo' => 'required|string',
-            'name' => 'required|string|max:255',
-            'currency_id' => 'required|exists:currencies,id', //currency_id should be an integer
-        ]);
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'currency_id' => 'required|exists:currencies,id',
+        'logo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
 
-        $company = Company::create([
-            'logo' => $request->logo,
-            'name' => $request->name,
-            'currency_id' => $request->currency_id,
-        ]);
+    $logoPath = $request->file('logo')->store('logos', 'public');
 
-       
+    Company::create([
+        'name' => $request->name,
+        'currency_id' => $request->currency_id,
+        'logo' => $logoPath,
+    ]);
 
-        return redirect()->route('company.index')->with('success', 'Company added successfully!');
+    return redirect()->route('company.index')->with('success', 'Company created successfully!');
+}
+
+public function update(Request $request, Company $company)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'currency_id' => 'required|exists:currencies,id',
+        'logo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
+    if ($request->hasFile('logo')) {
+        // delete old logo if exists
+        if ($company->logo && Storage::disk('public')->exists($company->logo)) {
+            Storage::disk('public')->delete($company->logo);
+        }
+
+        $logoPath = $request->file('logo')->store('logos', 'public');
+        $company->logo = $logoPath;
     }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'logo' => 'required|string',
-            'name' => 'required|string|max:255',
-            'currency_id' => 'required|string|max:50',
-        ]);
+    $company->update([
+        'name' => $request->name,
+        'currency_id' => $request->currency_id,
+        'logo' => $company->logo,
+    ]);
 
-        $company = Company::findOrFail($id);
-        $company->update([
-            'logo' => $request->logo,
-            'name' => $request->name,
-            'currency_id' => $request->currency_id,
-        ]);
-        $company= Company::findOrFail($id);
+    return redirect()->route('company.index')->with('success', 'Company updated successfully!');
+}
 
-        return redirect()->route('company.index')->with('success', 'Company updated successfully!');
-    }
     public function destroy($id)
 {
     // Find the currency by its ID

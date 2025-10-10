@@ -2,16 +2,17 @@
 
 @section('content')
 <div class="container">
-    <head> <link rel="stylesheet" href="{{ asset('css/style.css') }}"></head> 
-
+    <head><link rel="stylesheet" href="{{ asset('css/style.css') }}"></head> 
 
     <h3 class="mb-4">Company Management</h3> 
 
-    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
-    <a href="{{ route('company.create') }}" class="btn btn-primary mb-3">+ Create Company</a>
+    <div class="d-flex justify-content-start gap-2 mb-3">
+        <a href="{{ url('/') }}" class="btn btn-secondary">Home</a>
+        <a href="{{ route('company.create') }}" class="btn btn-primary">+ Create Company</a>
+    </div>
 
-    <table class="table table-bordered" id="companyTable">
-        <thead>
+    <table class="table table-bordered align-middle text-center" id="companyTable">
+        <thead class="table-light">
             <tr>
                 <th>No</th>
                 <th>Logo</th>
@@ -21,19 +22,31 @@
             </tr>
         </thead>
         <tbody>
-            
             @foreach($companies as $index => $company)
             <tr id="row-{{ $company->id }}">
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $company->logo }}</td>
-                <td>{{ $company->name }}</td>
+
+                <!-- Display the image instead of file name -->
                 <td>
-                @foreach($currencies as $currency)
-                    @if($currency->id == $company->currency_id)
-                        {{ $currency->code }}
+                    @if($company->logo)
+                        <img src="{{ asset('storage/' . $company->logo) }}" 
+                             alt="logo" 
+                             width="70" 
+                             class="rounded border">
+                    @else
+                        <span class="text-muted">No Logo</span>
                     @endif
-                @endforeach
-            </td>
+                </td>
+
+                <td>{{ $company->name }}</td>
+
+                <td>
+                    @foreach($currencies as $currency)
+                        @if($currency->id == $company->currency_id)
+                            {{ $currency->code }}
+                        @endif
+                    @endforeach
+                </td>
 
                 <td>
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal{{ $company->id }}">Edit</button>
@@ -47,9 +60,9 @@
 
 <!-- Edit Modals -->
 @foreach($companies as $company)
-<div class="modal fade" id="editModal{{ $company->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $company->id }}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form action="{{ route('company.update', $company->id) }}" method="POST">
+<div class="modal fade" id="editModal{{ $company->id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="{{ route('company.update', $company->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="modal-content">
@@ -57,25 +70,38 @@
                     <h5 class="modal-title">Edit Company</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
                 </div>
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label>Logo</label>
-                        <input type="text" name="logo" class="form-control" value="{{ $company->logo }}" required>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Logo</label>
 
-                        <label>Name</label>
+                        @if($company->logo)
+                            <div class="mb-2">
+                                <img src="{{ asset('storage/' . $company->logo) }}" alt="Logo" class="img-thumbnail rounded" width="100">
+                            </div>
+                        @endif
+
+                        <input type="file" name="logo" class="form-control" accept="image/*">
+                        <small class="text-muted">Upload new logo (optional)</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Name</label>
                         <input type="text" name="name" class="form-control" value="{{ $company->name }}" required>
+                    </div>
 
-                        <label>Currency</label>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Currency</label>
                         <select name="currency_id" class="form-control" required>
-    @foreach($currencies as $currency)
-        <option value="{{ $currency->id }}" {{ $company->currency_id == $currency->id ? 'selected' : '' }}>
-            {{ $currency->currency }} ({{ $currency->code }})
-        </option>
-    @endforeach
-</select>
-
+                            @foreach($currencies as $currency)
+                                <option value="{{ $currency->id }}" {{ $company->currency_id == $currency->id ? 'selected' : '' }}>
+                                    {{ $currency->currency }} ({{ $currency->code }})
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Update</button>
@@ -85,63 +111,18 @@
     </div>
 </div>
 @endforeach
- 
 
-<script>
-    $(document).ready(function () {
-        $('#addCompanyForm').on('submit', function (e) {
-            e.preventDefault();
-            let form = $(this);
-            let formData = form.serialize();
-
-            $.ajax({
-                url: form.attr('action'),
-                method: 'POST',
-                data: formData,
-                success: function (response) {
-                    if (response.success) {
-                        let newRow = `
-                            <tr id="row-${response.company.id}">
-                                <td>${$('#companyTable tbody tr').length + 1}</td>
-                                <td>${response.company.logo}</td>
-                                <td>${response.company.name}</td>
-                                <td>${response.company.currency}</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal${response.company.id}">Edit</button>
-                                </td>
-                            </tr>
-                        `;
-                        $('#companyTable tbody').append(newRow);
-                        $('#addCompanyModal').modal('hide');
-                        form[0].reset();
-                    } else {
-                        alert('Failed to add company.');
-                    }
-                },
-                error: function (xhr) {
-                    console.error(xhr.responseText);
-                    alert('An error occurred while adding company.');
-                }
-            });
-        });
-    });
-</script>
-@endsection
-
-
-<!-- Delete Modal -->
+<!-- Delete Modals -->
 @foreach($companies as $company)
-<div class="modal fade" id="deleteModal{{ $company->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $company->id }}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="deleteModal{{ $company->id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
         <form action="{{ route('company.destroy', $company->id) }}" method="POST">
             @csrf
             @method('DELETE')
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel{{ $company->id }}">Delete Company</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span>&times;</span>
-                    </button>
+                    <h5 class="modal-title">Delete Company</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                 </div>
                 <div class="modal-body">
                     Are you sure you want to delete this company?
@@ -155,3 +136,4 @@
     </div>
 </div>
 @endforeach
+@endsection
