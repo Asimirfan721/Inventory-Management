@@ -3,9 +3,9 @@
 @section('content')
 
 <!-- Create User Button -->
-<div class="d-flex justify-content-end mb-3">
-    <a href="{{ url('/') }}" class="btn btn-secondary mb-3">Home</a>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createUserModal">
+<div class="d-flex justify-content-end gap-2 mb-3">
+    <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
+    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createUserModal">
         + Create User
     </button>
 </div>
